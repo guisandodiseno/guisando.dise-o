@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio — Guisando Diseño</title>
+    <meta name="description" content="Portfolio de diseño gráfico, multimedia y dirección de arte.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         HEADER / NAVEGACIÓN
+    ========================================================== -->
+    <header class="site-header">
+        <a href="#inicio" class="logo">Mati Estebanez</a>
+
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="main-nav">
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#redes-sociales">Redes Sociales</a>
+            <a href="#packaging">Packaging</a>
+            <a href="#ilustracion">Ilustración</a>
+            <a href="#diseno-3d">Diseño 3D</a>
+            <a href="#editorial">Editorial / Cartelería</a>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- =====================================================
+             01 — INICIO
+        ====================================================== -->
+
+<section id="inicio" class="section section-home">
+
+    <!-- FONDO ESTADO 01 -->
+    <div class="home-background home-background--image">
+       <img src="media/img/FondoHome.png" alt="Fondo Home">
+    </div>
+
+    <!-- FONDO ESTADO 02: VÍDEO -->
+    <div class="home-background home-background--video">
+        <video
+            id="home-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+        >
+            <source src="media/video/videoHome.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <!-- CAPA OSCURA / COLOR -->
+    <div class="home-overlay"></div>
+
+
+    <!-- TÍTULO -->
+    <div class="home-title">
+        <h1>
+            <span>GUISANDO</span>
+            <span>DISEÑO</span>
+        </h1>
+    </div>
+
+
+    <!-- =================================================
+         PEGATINAS
+    ================================================== -->
+
+    <div class="home-stickers">
+
+
+        <!-- =========================
+             DISEÑO 3D
+        ========================== -->
+
+        <a
+            href="#diseno-3d"
+            class="home-sticker home-sticker--3d"
+            data-section="diseno-3d"
+        >
+            <img
+                src="media/img/pegatina.diseño3d.png"
+                alt="Diseño 3D"
+                draggable="false"
+            >
+        </a>
+
+
+        <!-- =========================
+             ILUSTRACIÓN
+        ========================== -->
+
+        <a
+            href="#ilustracion"
+            class="home-sticker home-sticker--ilustracion"
+            data-section="ilustracion"
+        >
+            <img
+                src="media/img/pegatina.ilustracion.png"
+                alt="Ilustración"
+                draggable="false"
+            >
+        </a>
+
+
+        <!-- =========================
+             PACKAGING
+        ========================== -->
+
+        <a
+            href="#packaging"
+            class="home-sticker home-sticker--packaging"
+            data-section="packaging"
+        >
+            <img
+                src="media/img/pegatina.packaging.png"
+                alt="Packaging"
+                draggable="false"
+            >
+        </a>
+
+
+        <!-- =========================
+             EDITORIAL
+        ========================== -->
+
+        <a
+            href="#editorial"
+            class="home-sticker home-sticker--editorial"
+            data-section="editorial"
+        >
+            <img
+                src="media/img/pegatina.editorial.png"
+                alt="Editorial y cartelería"
+                draggable="false"
+            >
+        </a>
+
+
+        <!-- =========================
+             REDES SOCIALES
+        ========================== -->
+
+        <a
+            href="#redes-sociales"
+            class="home-sticker home-sticker--redes"
+            data-section="redes-sociales"
+        >
+            <img
+                src="media/img/pegatina.rrss.png"
+                alt="Redes Sociales"
+                draggable="false"
+            >
+        </a>
+
+
+        <!-- =========================
+             SOBRE MÍ
+        ========================== -->
+
+        <a
+            href="#sobre-mi"
+            class="home-sticker home-sticker--sobre-mi"
+            data-section="sobre-mi"
+        >
+            <img
+                src="media/img/pegatina.sobremi.png"
+                alt="Sobre mí"
+                draggable="false"
+            >
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         BOTÓN CENTRAL
+    ================================================== -->
+
+    <button
+        type="button"
+        class="home-switch"
+        id="home-switch"
+        aria-label="Cambiar vista"
+        aria-pressed="false"
+    >
+        <span class="home-switch__inner"></span>
+    </button>
+
+</section>
+
+
+        <!-- =====================================================
+             02 — SOBRE MÍ
+        ====================================================== -->
+        <section id="sobre-mi" class="section section-about">
+
+            <div class="section-heading reveal">
+                <p class="section-number">01</p>
+                <h2>Sobre mí<span>.</span></h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-image reveal reveal--left">
+                    <img src="assets/sobre-mi.jpg" alt="Fotografía personal">
+                </div>
+
+                <div class="about-text reveal reveal--right">
+                    <p class="large-text">
+                        Soy diseñador/a gráfico/a y multimedia especializado/a
+                        en crear conceptos visuales, identidades y experiencias.
+                    </p>
+
+                    <p>
+                        Aquí irá tu presentación personal, tu recorrido,
+                        intereses, herramientas y todo aquello que quieras
+                        contar sobre ti.
+                    </p>
+
+                    <a href="#redes-sociales" class="text-link">
+                        Ver proyectos ↓
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             03 — REDES SOCIALES
+        ====================================================== -->
+        <section id="redes-sociales" class="section project-section project-redes">
+
+            <div class="section-heading reveal">
+                <p class="section-number">02</p>
+                <h2>Redes Sociales<span>.</span></h2>
+            </div>
+
+            <div class="project-intro reveal">
+                <p>
+                    Dirección de arte, contenido digital, campañas y
+                    piezas para redes sociales.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <a href="#" class="project-card reveal">
+                    <img src="assets/redes-01.jpg" alt="Proyecto de redes sociales 01">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/redes-02.jpg" alt="Proyecto de redes sociales 02">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/redes-03.jpg" alt="Proyecto de redes sociales 03">
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             04 — PACKAGING
+        ====================================================== -->
+        <section id="packaging" class="section project-section project-packaging">
+
+            <div class="section-heading reveal">
+                <p class="section-number">03</p>
+                <h2>Packaging<span>.</span></h2>
+            </div>
+
+            <div class="project-intro reveal">
+                <p>
+                    Diseño de packaging, dirección de arte y desarrollo
+                    de conceptos de producto.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <a href="#" class="project-card reveal">
+                    <img src="assets/packaging-01.jpg" alt="Proyecto de packaging 01">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/packaging-02.jpg" alt="Proyecto de packaging 02">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/packaging-03.jpg" alt="Proyecto de packaging 03">
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             05 — ILUSTRACIÓN
+        ====================================================== -->
+        <section id="ilustracion" class="section project-section project-ilustracion">
+
+            <div class="section-heading reveal">
+                <p class="section-number">04</p>
+                <h2>Ilustración<span>.</span></h2>
+            </div>
+
+            <div class="project-grid project-grid--masonry">
+                <a href="#" class="project-card reveal">
+                    <img src="assets/ilustracion-01.jpg" alt="Ilustración 01">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/ilustracion-02.jpg" alt="Ilustración 02">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/ilustracion-03.jpg" alt="Ilustración 03">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/ilustracion-04.jpg" alt="Ilustración 04">
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             06 — DISEÑO 3D
+        ====================================================== -->
+        <section id="diseno-3d" class="section project-section project-3d">
+
+            <div class="section-heading reveal">
+                <p class="section-number">05</p>
+                <h2>Diseño 3D<span>.</span></h2>
+            </div>
+
+            <div class="project-intro reveal">
+                <p>
+                    Modelado, render, animación y experimentación 3D.
+                </p>
+            </div>
+
+            <div class="project-grid">
+                <a href="#" class="project-card reveal">
+                    <img src="assets/3d-01.jpg" alt="Proyecto 3D 01">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/3d-02.jpg" alt="Proyecto 3D 02">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/3d-03.jpg" alt="Proyecto 3D 03">
+                </a>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             07 — EDITORIAL / CARTELERÍA
+        ====================================================== -->
+        <section id="editorial" class="section project-section project-editorial">
+
+            <div class="section-heading reveal">
+                <p class="section-number">06</p>
+                <h2>Editorial / Cartelería<span>.</span></h2>
+            </div>
+
+            <div class="project-intro reveal">
+                <p>
+                    Diseño editorial, maquetación, carteles y sistemas
+                    gráficos.
+                </p>
+            </div>
+
+            <div class="project-grid project-grid--masonry">
+                <a href="#" class="project-card reveal">
+                    <img src="assets/editorial-01.jpg" alt="Proyecto editorial 01">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/editorial-02.jpg" alt="Proyecto editorial 02">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/editorial-03.jpg" alt="Proyecto editorial 03">
+                </a>
+
+                <a href="#" class="project-card reveal">
+                    <img src="assets/editorial-04.jpg" alt="Proyecto editorial 04">
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER + ESPACIO PARA CINEMA 4D
+    ========================================================== -->
+    <footer class="site-footer">
+
+        <div class="footer-3d reveal">
+            <!--
+                Más adelante aquí cargaremos el elemento 3D de Cinema 4D.
+                Dejamos el canvas preparado para Three.js/WebGL.
+            -->
+            <canvas id="canvas-3d"></canvas>
+
+            <div class="footer-3d-placeholder">
+                <p>Elemento 3D interactivo</p>
+                <span>Próximamente</span>
+            </div>
+        </div>
+
+        <div class="footer-content reveal">
+            <p>¿Hablamos?</p>
+            <a href="mailto:tuemail@email.com">tuemail@email.com</a>
+
+            <div class="footer-bottom">
+                <span>© 2026 Tu Nombre</span>
+                <a href="#inicio">Volver arriba ↑</a>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>

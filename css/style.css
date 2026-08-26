@@ -1,0 +1,1193 @@
+/* ==========================================================
+   PORTFOLIO — BASE CSS
+   ========================================================== */
+
+/* ---------- FUENTES ---------- */
+
+@font-face {
+    font-family: "Spikle";
+    src: url("../assets/fonts/Spikle-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Acumin";
+    src: url("../assets/fonts/Acumin-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ---------- VARIABLES ---------- */
+
+:root {
+    --yellow: #ffee76;
+    --coral: #ff6f43;
+    --orange: #ff931e;
+    --green: #accb65;
+
+    --black: #111111;
+    --white: #fffdf8;
+
+    --font-display: "Spikle", serif;
+    --font-body: "Acumin", Arial, sans-serif;
+
+    --page-padding: clamp(1.25rem, 4vw, 5rem);
+    --section-padding: clamp(5rem, 10vw, 12rem);
+
+    --radius: 1.5rem;
+}
+
+
+/* ---------- RESET ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    margin: 0;
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.35;
+    overflow-x: hidden;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+::selection {
+    background: var(--black);
+    color: var(--yellow);
+}
+
+
+/* ---------- HEADER ---------- */
+
+.site-header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 1.25rem var(--page-padding);
+
+    mix-blend-mode: difference;
+    color: white;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: currentColor;
+
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.main-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* ---------- MOBILE MENU ---------- */
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 2rem;
+    height: 2px;
+    margin: 0.35rem 0;
+    background: currentColor;
+}
+
+
+/* ---------- GENERAL SECTIONS ---------- */
+
+.section {
+    position: relative;
+    min-height: 100vh;
+    padding: var(--section-padding) var(--page-padding);
+}
+
+.section-heading {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    gap: 1.5rem;
+
+    margin-bottom: clamp(3rem, 7vw, 8rem);
+}
+
+.section-number {
+    margin: 0;
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 0.85;
+}
+
+h2 {
+    font-size: clamp(4rem, 11vw, 12rem);
+}
+
+h1 span,
+h2 span {
+    color: var(--coral);
+}
+
+
+/* ---------- INICIO ---------- */
+
+/* ==========================================================
+   HOME / INICIO INTERACTIVO
+   ========================================================== */
+
+.section-home {
+    position: relative;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 700px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+
+/* ==========================================================
+   FONDOS
+   ========================================================== */
+
+.home-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    transition:
+        opacity 1s cubic-bezier(.16, 1, .3, 1),
+        transform 1.2s cubic-bezier(.16, 1, .3, 1);
+
+    pointer-events: none;
+}
+
+
+/* FONDO PRIMER ESTADO */
+
+.home-background--image {
+    z-index: 0;
+
+    background-image: url("../assets/home-frigorifico.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    opacity: 1;
+}
+
+
+/* FONDO SEGUNDO ESTADO */
+
+.home-background--video {
+    z-index: 1;
+
+    opacity: 0;
+}
+
+.home-background--video video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+
+/* ==========================================================
+   OVERLAY
+   ========================================================== */
+
+.home-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 2;
+
+    background: rgba(0, 0, 0, 0.03);
+
+    pointer-events: none;
+
+    transition:
+        background 1s ease;
+}
+
+
+/* ==========================================================
+   SEGUNDO ESTADO
+   ========================================================== */
+
+.section-home.is-second-state
+.home-background--image {
+    opacity: 0;
+    transform: scale(1.04);
+}
+
+.section-home.is-second-state
+.home-background--video {
+    opacity: 1;
+}
+
+.section-home.is-second-state
+.home-overlay {
+    background: rgba(255, 238, 118, 0.08);
+}
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
+
+.home-title {
+    position: absolute;
+
+    z-index: 5;
+
+    top: 3.5%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: max-content;
+
+    color: white;
+
+    pointer-events: none;
+
+    text-align: center;
+}
+
+.home-title h1 {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+
+    font-family: var(--font-display);
+    font-weight: 400;
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.78;
+
+    text-transform: uppercase;
+}
+
+.home-title h1 span {
+    color: white;
+}
+
+
+/* ==========================================================
+   CONTENEDOR DE PEGATINAS
+   ========================================================== */
+
+.home-stickers {
+    position: absolute;
+    inset: 0;
+
+    z-index: 10;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   PEGATINAS
+   ========================================================== */
+
+.home-sticker {
+    position: absolute;
+
+    display: block;
+
+    width: clamp(150px, 18vw, 330px);
+
+    cursor: grab;
+
+    pointer-events: auto;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    touch-action: none;
+
+    transition:
+        left 1s cubic-bezier(.16, 1, .3, 1),
+        top 1s cubic-bezier(.16, 1, .3, 1),
+        transform 1s cubic-bezier(.16, 1, .3, 1),
+        filter 0.3s ease;
+
+    will-change: left, top, transform;
+}
+
+.home-sticker img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    pointer-events: none;
+
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* ==========================================================
+   ESTADO 01 — POSICIONES
+   ========================================================== */
+
+/*
+   Estas posiciones reproducen aproximadamente
+   la composición de tu primera imagen.
+*/
+
+.home-sticker--3d {
+    left: 25%;
+    top: 28%;
+
+    width: clamp(150px, 17vw, 310px);
+
+    transform: rotate(-16deg);
+}
+
+.home-sticker--ilustracion {
+    left: 48%;
+    top: 32%;
+
+    width: clamp(150px, 17vw, 300px);
+
+    transform: rotate(12deg);
+}
+
+.home-sticker--packaging {
+    left: 68%;
+    top: 38%;
+
+    width: clamp(150px, 17vw, 310px);
+
+    transform: rotate(9deg);
+}
+
+.home-sticker--editorial {
+    left: 27%;
+    top: 53%;
+
+    width: clamp(170px, 19vw, 340px);
+
+    transform: rotate(-12deg);
+}
+
+.home-sticker--redes {
+    left: 37%;
+    top: 62%;
+
+    width: clamp(150px, 17vw, 300px);
+
+    transform: rotate(5deg);
+}
+
+.home-sticker--sobre-mi {
+    left: 57%;
+    top: 55%;
+
+    width: clamp(190px, 21vw, 370px);
+
+    transform: rotate(8deg);
+}
+
+
+/* ==========================================================
+   HOVER
+   ========================================================== */
+
+.home-sticker:hover {
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+}
+
+.home-sticker:active {
+    cursor: grabbing;
+}
+
+
+/* ==========================================================
+   SEGUNDO ESTADO — POSICIONES
+   ========================================================== */
+
+/*
+   Aquí recolocamos automáticamente las pegatinas
+   para que coincidan con la segunda composición.
+*/
+
+.section-home.is-second-state
+.home-sticker--3d {
+    left: 12%;
+    top: 10%;
+
+    transform: rotate(-16deg);
+}
+
+.section-home.is-second-state
+.home-sticker--ilustracion {
+    left: 57%;
+    top: 8%;
+
+    transform: rotate(12deg);
+}
+
+.section-home.is-second-state
+.home-sticker--packaging {
+    left: 73%;
+    top: 25%;
+
+    transform: rotate(7deg);
+}
+
+.section-home.is-second-state
+.home-sticker--editorial {
+    left: 37%;
+    top: 29%;
+
+    transform: rotate(0deg);
+}
+
+.section-home.is-second-state
+.home-sticker--redes {
+    left: 19%;
+    top: 56%;
+
+    transform: rotate(-2deg);
+}
+
+.section-home.is-second-state
+.home-sticker--sobre-mi {
+    left: 59%;
+    top: 51%;
+
+    transform: rotate(10deg);
+}
+
+
+/* ==========================================================
+   BOTÓN CENTRAL
+   ========================================================== */
+
+.home-switch {
+    position: absolute;
+
+    z-index: 30;
+
+    left: 50%;
+    bottom: 3%;
+
+    width: clamp(110px, 17vw, 220px);
+    aspect-ratio: 1;
+
+    transform: translateX(-50%);
+
+    border: 0;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 45% 40%,
+            #181818 0%,
+            #050505 55%,
+            #000 100%
+        );
+
+    box-shadow:
+        inset 0 0 0 4px #292929,
+        inset 0 0 0 7px #050505,
+        0 15px 35px rgba(0, 0, 0, 0.45);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.5s cubic-bezier(.16, 1, .3, 1),
+        box-shadow 0.4s ease;
+
+    touch-action: manipulation;
+}
+
+.home-switch::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 7%;
+
+    border-radius: 50%;
+
+    border: 2px solid rgba(255,255,255,.08);
+}
+
+.home-switch__inner {
+    position: absolute;
+
+    width: 13%;
+    height: 43%;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+
+    transform-origin: 50% 75%;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #030303,
+            #191919,
+            #030303
+        );
+
+    box-shadow:
+        inset 1px 0 2px rgba(255,255,255,.15),
+        0 2px 5px rgba(0,0,0,.6);
+
+    transition:
+        transform 0.8s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/* Posición del botón en estado 2 */
+
+.section-home.is-second-state
+.home-switch__inner {
+    transform:
+        translate(-50%, -50%)
+        rotate(55deg);
+}
+
+
+/* LED */
+
+.home-switch::after {
+    content: "";
+
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    top: 12%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #777;
+
+    transition:
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.section-home.is-second-state
+.home-switch::after {
+    background: #ff3b30;
+
+    box-shadow:
+        0 0 10px rgba(255, 59, 48, .8);
+}
+
+
+.home-switch:hover {
+    transform:
+        translateX(-50%)
+        scale(1.04);
+
+    box-shadow:
+        inset 0 0 0 4px #292929,
+        inset 0 0 0 7px #050505,
+        0 20px 45px rgba(0, 0, 0, 0.55);
+}
+
+.home-switch:active {
+    transform:
+        translateX(-50%)
+        scale(.97);
+}
+
+
+/* ==========================================================
+   REVEAL DEL HOME
+   ========================================================== */
+
+.section-home .home-title,
+.section-home .home-sticker,
+.section-home .home-switch {
+    opacity: 0;
+
+    animation:
+        homeEntrance 1s cubic-bezier(.16, 1, .3, 1) forwards;
+}
+
+.section-home .home-title {
+    animation-delay: .15s;
+}
+
+.section-home .home-sticker {
+    animation-delay: .35s;
+}
+
+.section-home .home-switch {
+    animation-delay: .5s;
+}
+
+
+@keyframes homeEntrance {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .section-home {
+        min-height: 100svh;
+    }
+
+    .home-sticker {
+        width: clamp(120px, 25vw, 220px);
+    }
+
+    .home-sticker--3d {
+        left: 8%;
+        top: 22%;
+    }
+
+    .home-sticker--ilustracion {
+        left: 45%;
+        top: 25%;
+    }
+
+    .home-sticker--packaging {
+        left: 68%;
+        top: 30%;
+    }
+
+    .home-sticker--editorial {
+        left: 8%;
+        top: 48%;
+    }
+
+    .home-sticker--redes {
+        left: 32%;
+        top: 57%;
+    }
+
+    .home-sticker--sobre-mi {
+        left: 58%;
+        top: 52%;
+    }
+
+    .section-home.is-second-state
+    .home-sticker--3d {
+        left: 5%;
+        top: 13%;
+    }
+
+    .section-home.is-second-state
+    .home-sticker--ilustracion {
+        left: 53%;
+        top: 10%;
+    }
+
+    .section-home.is-second-state
+    .home-sticker--packaging {
+        left: 69%;
+        top: 30%;
+    }
+
+    .section-home.is-second-state
+    .home-sticker--editorial {
+        left: 34%;
+        top: 33%;
+    }
+
+    .section-home.is-second-state
+    .home-sticker--redes {
+        left: 10%;
+        top: 59%;
+    }
+
+    .section-home.is-second-state
+    .home-sticker--sobre-mi {
+        left: 57%;
+        top: 55%;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .home-title {
+        top: 5%;
+    }
+
+    .home-title h1 {
+        font-size: clamp(2.5rem, 12vw, 5rem);
+    }
+
+    .home-sticker {
+        width: clamp(100px, 29vw, 160px);
+    }
+
+    .home-switch {
+        width: 110px;
+        bottom: 4%;
+    }
+
+}
+
+
+/* ---------- SOBRE MÍ ---------- */
+
+.section-about {
+    background: var(--coral);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 7vw, 8rem);
+    align-items: center;
+}
+
+.about-image {
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.about-image img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.about-text {
+    max-width: 38rem;
+}
+
+.large-text {
+    margin: 0 0 2rem;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 0.95;
+}
+
+.about-text > p:not(.large-text) {
+    max-width: 30rem;
+    font-size: 1.1rem;
+}
+
+
+/* ---------- LINK ---------- */
+
+.text-link {
+    display: inline-block;
+    margin-top: 2rem;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.25rem;
+}
+
+
+/* ---------- PROYECTOS ---------- */
+
+.project-section {
+    min-height: auto;
+}
+
+.project-redes {
+    background: var(--yellow);
+}
+
+.project-packaging {
+    background: var(--orange);
+}
+
+.project-ilustracion {
+    background: var(--green);
+}
+
+.project-3d {
+    background: var(--coral);
+}
+
+.project-editorial {
+    background: var(--yellow);
+}
+
+.project-intro {
+    max-width: 38rem;
+    margin-bottom: 5rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    line-height: 1;
+}
+
+
+/* ---------- GRID DE PROYECTOS ---------- */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 2vw, 2rem);
+}
+
+.project-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius);
+}
+
+.project-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+
+    transition:
+        transform 0.8s cubic-bezier(.16, 1, .3, 1),
+        filter 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.04);
+}
+
+.project-grid--masonry .project-card:nth-child(2) {
+    margin-top: 8rem;
+}
+
+.project-grid--masonry .project-card:nth-child(4) {
+    margin-top: -4rem;
+}
+
+
+/* ==========================================================
+   REVEAL SYSTEM
+   ========================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(4rem);
+    transition:
+        opacity 0.9s cubic-bezier(.16, 1, .3, 1),
+        transform 1s cubic-bezier(.16, 1, .3, 1);
+}
+
+.reveal--left {
+    transform: translateX(-5rem);
+}
+
+.reveal--right {
+    transform: translateX(5rem);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.site-footer {
+    min-height: 100vh;
+    padding: var(--section-padding) var(--page-padding) 2rem;
+
+    background: var(--black);
+    color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.footer-3d {
+    position: relative;
+    min-height: 60vh;
+
+    display: grid;
+    place-items: center;
+}
+
+#canvas-3d {
+    width: 100%;
+    height: 60vh;
+    display: block;
+}
+
+.footer-3d-placeholder {
+    position: absolute;
+    text-align: center;
+    pointer-events: none;
+}
+
+.footer-3d-placeholder p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 5rem);
+}
+
+.footer-3d-placeholder span {
+    opacity: 0.5;
+}
+
+.footer-content {
+    margin-top: 5rem;
+}
+
+.footer-content > p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer-content > a {
+    display: inline-block;
+    margin-top: 0.5rem;
+
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.8;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5rem;
+
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 800px) {
+
+    .main-nav {
+        position: fixed;
+        inset: 0;
+
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        padding: var(--page-padding);
+        gap: 1rem;
+
+        background: var(--black);
+        color: var(--white);
+
+        transform: translateY(-100%);
+        transition: transform 0.6s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .main-nav.is-open {
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        font-family: var(--font-display);
+        font-size: 3rem;
+    }
+
+    .menu-toggle {
+        position: relative;
+        z-index: 1001;
+        display: block;
+    }
+
+    .home-content h1 {
+        font-size: clamp(5rem, 25vw, 10rem);
+    }
+
+    .home-projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .home-project--redes,
+    .home-project--packaging,
+    .home-project--ilustracion,
+    .home-project--3d,
+    .home-project--editorial {
+        grid-column: auto;
+        margin-top: 0;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .project-grid--masonry .project-card:nth-child(2),
+    .project-grid--masonry .project-card:nth-child(4) {
+        margin-top: 0;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .section {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+
+    h2 {
+        font-size: clamp(3.5rem, 17vw, 6rem);
+    }
+
+    .section-heading {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .home-projects,
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-project--redes,
+    .home-project--packaging,
+    .home-project--ilustracion,
+    .home-project--3d,
+    .home-project--editorial {
+        grid-column: auto;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+
+/* ---------- REDUCE MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
