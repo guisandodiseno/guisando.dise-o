@@ -36,19 +36,27 @@
 
     <main>
 
-        <!-- =====================================================
-             01 — INICIO
-        ====================================================== -->
-
+<!-- =====================================================
+     01 — INICIO
+====================================================== -->
 <section id="inicio" class="section section-home">
 
-    <!-- FONDO ESTADO 01 -->
+    <!-- =========================
+         FONDO ESTADO 1
+    ========================== -->
     <div class="home-background home-background--image">
-       <img src="media/img/FondoHome.png" alt="Fondo Home">
+        <img 
+            src="media/img/FondoHome.png" 
+            alt=""
+        >
     </div>
 
-    <!-- FONDO ESTADO 02: VÍDEO -->
+
+    <!-- =========================
+         FONDO ESTADO 2 — VÍDEO
+    ========================== -->
     <div class="home-background home-background--video">
+
         <video
             id="home-video"
             autoplay
@@ -59,145 +67,82 @@
         >
             <source src="media/video/videoHome.mp4" type="video/mp4">
         </video>
+
     </div>
 
 
-    <!-- CAPA OSCURA / COLOR -->
-    <div class="home-overlay"></div>
-
-
-    <!-- TÍTULO -->
+    <!-- =========================
+         TÍTULO
+    ========================== -->
     <div class="home-title">
         <h1>
-            <span>GUISANDO</span>
-            <span>DISEÑO</span>
+            GUISANDO<br>
+            DISEÑO
         </h1>
     </div>
 
 
-    <!-- =================================================
-         PEGATINAS
-    ================================================== -->
+    <!-- =========================
+         PEGATINAS / BOTONES
+    ========================== -->
 
     <div class="home-stickers">
 
+ <div class="home-sticker sticker-sobre-mi" data-target="sobre-mi">
+    <img src="media/img/pegatina.sobremi.png" alt="Sobre mí" draggable="false">
+</div>
 
-        <!-- =========================
-             DISEÑO 3D
-        ========================== -->
+<div class="home-sticker sticker-redes" data-target="redes-sociales">
+    <img src="media/img/pegatina.rrss.png" alt="Redes Sociales" draggable="false">
+</div>
 
-        <a
-            href="#diseno-3d"
-            class="home-sticker home-sticker--3d"
-            data-section="diseno-3d"
-        >
-            <img
-                src="media/img/pegatina.diseño3d.png"
-                alt="Diseño 3D"
-                draggable="false"
-            >
-        </a>
+<div class="home-sticker sticker-packaging" data-target="packaging">
+    <img src="media/img/pegatina.packaging.png" alt="Packaging" draggable="false">
+</div>
 
+<div class="home-sticker sticker-ilustracion" data-target="ilustracion">
+    <img src="media/img/pegatina.ilustracion.png" alt="Ilustración" draggable="false">
+</div>
 
-        <!-- =========================
-             ILUSTRACIÓN
-        ========================== -->
+<div class="home-sticker sticker-3d" data-target="diseno-3d">
+    <img src="media/img/pegatina.diseño3d.png" alt="Diseño 3D" draggable="false">
+</div>
 
-        <a
-            href="#ilustracion"
-            class="home-sticker home-sticker--ilustracion"
-            data-section="ilustracion"
-        >
-            <img
-                src="media/img/pegatina.ilustracion.png"
-                alt="Ilustración"
-                draggable="false"
-            >
-        </a>
-
-
-        <!-- =========================
-             PACKAGING
-        ========================== -->
-
-        <a
-            href="#packaging"
-            class="home-sticker home-sticker--packaging"
-            data-section="packaging"
-        >
-            <img
-                src="media/img/pegatina.packaging.png"
-                alt="Packaging"
-                draggable="false"
-            >
-        </a>
-
-
-        <!-- =========================
-             EDITORIAL
-        ========================== -->
-
-        <a
-            href="#editorial"
-            class="home-sticker home-sticker--editorial"
-            data-section="editorial"
-        >
-            <img
-                src="media/img/pegatina.editorial.png"
-                alt="Editorial y cartelería"
-                draggable="false"
-            >
-        </a>
-
-
-        <!-- =========================
-             REDES SOCIALES
-        ========================== -->
-
-        <a
-            href="#redes-sociales"
-            class="home-sticker home-sticker--redes"
-            data-section="redes-sociales"
-        >
-            <img
-                src="media/img/pegatina.rrss.png"
-                alt="Redes Sociales"
-                draggable="false"
-            >
-        </a>
-
-
-        <!-- =========================
-             SOBRE MÍ
-        ========================== -->
-
-        <a
-            href="#sobre-mi"
-            class="home-sticker home-sticker--sobre-mi"
-            data-section="sobre-mi"
-        >
-            <img
-                src="media/img/pegatina.sobremi.png"
-                alt="Sobre mí"
-                draggable="false"
-            >
-        </a>
+<div class="home-sticker sticker-editorial" data-target="editorial">
+    <img src="media/img/pegatina.editorial.png" alt="Editorial / Cartelería" draggable="false">
+</div>
 
     </div>
 
 
-    <!-- =================================================
-         BOTÓN CENTRAL
-    ================================================== -->
+    <!-- =========================
+         BOTÓN CIRCULAR
+         TAMBIÉN ES UNA IMAGEN
+    ========================== -->
 
-    <button
-        type="button"
+     <button
         class="home-switch"
         id="home-switch"
-        aria-label="Cambiar vista"
-        aria-pressed="false"
+        aria-label="Cambiar presentación"
+        type="button"
     >
-        <span class="home-switch__inner"></span>
+
+        <!-- Imagen estado 1 -->
+        <img
+            class="switch-image switch-image--one"
+            src="media/img/boton.off.png"
+            alt=""
+            draggable="false"
+        >
+
+        <!-- Imagen estado 2 -->
+        <img
+            class="switch-image switch-image--two"
+            src="media/img/boton.on.png"
+            alt=""
+            draggable="false"
+        >
+
     </button>
 
 </section>

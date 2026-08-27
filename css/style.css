@@ -290,7 +290,7 @@ h2 span {
     pointer-events: none;
 
     transition:
-        background 1s ease;
+     background 1s ease;
 }
 
 
@@ -419,326 +419,347 @@ h2 span {
 
 
 /* ==========================================================
-   ESTADO 01 — POSICIONES
+   INICIO — HOME INTERACTIVO
    ========================================================== */
 
-/*
-   Estas posiciones reproducen aproximadamente
-   la composición de tu primera imagen.
-*/
+.section-home {
+    position: relative;
 
-.home-sticker--3d {
-    left: 25%;
-    top: 28%;
+    width: 100%;
+    height: 100svh;
+    min-height: 700px;
 
-    width: clamp(150px, 17vw, 310px);
+    padding: 0;
 
-    transform: rotate(-16deg);
-}
+    overflow: hidden;
 
-.home-sticker--ilustracion {
-    left: 48%;
-    top: 32%;
-
-    width: clamp(150px, 17vw, 300px);
-
-    transform: rotate(12deg);
-}
-
-.home-sticker--packaging {
-    left: 68%;
-    top: 38%;
-
-    width: clamp(150px, 17vw, 310px);
-
-    transform: rotate(9deg);
-}
-
-.home-sticker--editorial {
-    left: 27%;
-    top: 53%;
-
-    width: clamp(170px, 19vw, 340px);
-
-    transform: rotate(-12deg);
-}
-
-.home-sticker--redes {
-    left: 37%;
-    top: 62%;
-
-    width: clamp(150px, 17vw, 300px);
-
-    transform: rotate(5deg);
-}
-
-.home-sticker--sobre-mi {
-    left: 57%;
-    top: 55%;
-
-    width: clamp(190px, 21vw, 370px);
-
-    transform: rotate(8deg);
+    background: var(--black);
 }
 
 
 /* ==========================================================
-   HOVER
+   FONDOS
    ========================================================== */
 
-.home-sticker:hover {
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.25));
+.home-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+/* FOTO ESTADO 1 */
+
+.home-background--image {
+    z-index: 0;
+    opacity: 1;
+}
+
+.home-background--image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* VÍDEO ESTADO 2 */
+
+.home-background--video {
+    z-index: 1;
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+.home-background--video video {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ==========================================================
+   ESTADO 2
+   ========================================================== */
+
+.section-home.state-two .home-background--image {
+    opacity: 0;
+}
+
+.section-home.state-two .home-background--video {
+    opacity: 1;
+}
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
+
+.home-title {
+    position: absolute;
+    z-index: 10;
+
+    top: 3%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    text-align: center;
+    pointer-events: none;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.section-home.state-two .home-title {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.home-title h1 {
+    margin: 0;
+
+    color: white;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(3rem, 7vw, 7rem);
+
+    line-height: 0.85;
+
+    text-transform: uppercase;
+
+    text-shadow: 0 2px 10px rgba(0,0,0,.15);
+}
+
+
+/* ==========================================================
+   CONTENEDOR PEGATINAS
+   ========================================================== */
+
+.home-stickers {
+    position: absolute;
+    inset: 0;
+
+    z-index: 20;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   PEGATINAS
+   ========================================================== */
+
+.home-sticker {
+    position: absolute;
+
+    display: block;
+
+    width: clamp(130px, 16vw, 280px);
+
+    cursor: grab;
+
+    pointer-events: auto;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    touch-action: none;
+
+    /* MUY IMPORTANTE */
+    -webkit-tap-highlight-color: transparent;
 }
 
 .home-sticker:active {
     cursor: grabbing;
 }
 
+.home-sticker.is-navigation {
+    cursor: pointer;
+}
+
+
+.home-sticker img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+
+    user-select: none;
+    -webkit-user-drag: none;
+
+    filter:
+        drop-shadow(0 12px 12px rgba(0,0,0,.18));
+
+    transition:
+        filter 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* HOVER */
+
+.home-sticker:hover img {
+    filter:
+        drop-shadow(0 18px 18px rgba(0,0,0,.25));
+
+    transform: scale(1.04);
+}
+
 
 /* ==========================================================
-   SEGUNDO ESTADO — POSICIONES
+   POSICIONES — ESTADO 1
    ========================================================== */
 
-/*
-   Aquí recolocamos automáticamente las pegatinas
-   para que coincidan con la segunda composición.
-*/
+.sticker-sobre-mi {
+    width: clamp(160px, 19vw, 300px);
 
-.section-home.is-second-state
-.home-sticker--3d {
-    left: 12%;
-    top: 10%;
+    left: 52%;
+    top: 55%;
 
-    transform: rotate(-16deg);
+    transform: translate(-50%, -50%) rotate(8deg);
 }
 
-.section-home.is-second-state
-.home-sticker--ilustracion {
-    left: 57%;
-    top: 8%;
+.sticker-redes {
+    left: 10%;
+    top: 57%;
 
-    transform: rotate(12deg);
+    transform: rotate(-15deg);
 }
 
-.section-home.is-second-state
-.home-sticker--packaging {
-    left: 73%;
-    top: 25%;
-
-    transform: rotate(7deg);
-}
-
-.section-home.is-second-state
-.home-sticker--editorial {
-    left: 37%;
-    top: 29%;
-
-    transform: rotate(0deg);
-}
-
-.section-home.is-second-state
-.home-sticker--redes {
-    left: 19%;
-    top: 56%;
-
-    transform: rotate(-2deg);
-}
-
-.section-home.is-second-state
-.home-sticker--sobre-mi {
-    left: 59%;
-    top: 51%;
+.sticker-packaging {
+    right: 10%;
+    top: 38%;
 
     transform: rotate(10deg);
 }
 
+.sticker-ilustracion {
+    left: 43%;
+    top: 28%;
+
+    transform: translate(-50%, -50%) rotate(3deg);
+}
+
+.sticker-3d {
+    left: 13%;
+    top: 22%;
+
+    transform: rotate(-12deg);
+}
+
+.sticker-editorial {
+    right: 24%;
+    bottom: 13%;
+
+    transform: rotate(-8deg);
+}
+
 
 /* ==========================================================
-   BOTÓN CENTRAL
+   BOTÓN CIRCULAR
    ========================================================== */
 
 .home-switch {
     position: absolute;
 
-    z-index: 30;
-
+    z-index: 50;
     left: 50%;
     bottom: 3%;
 
-    width: clamp(110px, 17vw, 220px);
-    aspect-ratio: 1;
+    width: clamp(100px, 15vw, 230px);
+    aspect-ratio: 1 / 1;
 
-    transform: translateX(-50%);
+    padding: 0;
 
     border: 0;
-    border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 45% 40%,
-            #181818 0%,
-            #050505 55%,
-            #000 100%
-        );
+    background: transparent;
 
-    box-shadow:
-        inset 0 0 0 4px #292929,
-        inset 0 0 0 7px #050505,
-        0 15px 35px rgba(0, 0, 0, 0.45);
+    transform: translateX(-50%);
 
     cursor: pointer;
 
-    transition:
-        transform 0.5s cubic-bezier(.16, 1, .3, 1),
-        box-shadow 0.4s ease;
-
-    touch-action: manipulation;
+    overflow: visible;
 }
 
-.home-switch::before {
-    content: "";
 
+.home-switch img {
     position: absolute;
+    inset: 0;
 
-    inset: 7%;
+    width: 100%;
+    height: 100%;
 
-    border-radius: 50%;
+    object-fit: contain;
 
-    border: 2px solid rgba(255,255,255,.08);
-}
-
-.home-switch__inner {
-    position: absolute;
-
-    width: 13%;
-    height: 43%;
-
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%, -50%)
-        rotate(0deg);
-
-    transform-origin: 50% 75%;
-
-    border-radius: 999px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #030303,
-            #191919,
-            #030303
-        );
-
-    box-shadow:
-        inset 1px 0 2px rgba(255,255,255,.15),
-        0 2px 5px rgba(0,0,0,.6);
-
-    transition:
-        transform 0.8s cubic-bezier(.16, 1, .3, 1);
+    pointer-events: none;
 }
 
 
-/* Posición del botón en estado 2 */
+/* BOTÓN ESTADO 1 */
 
-.section-home.is-second-state
-.home-switch__inner {
-    transform:
-        translate(-50%, -50%)
-        rotate(55deg);
+.switch-image--one {
+    opacity: 1;
 }
 
 
-/* LED */
+/* BOTÓN ESTADO 2 */
 
-.home-switch::after {
-    content: "";
-
-    position: absolute;
-
-    width: 8px;
-    height: 8px;
-
-    top: 12%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    border-radius: 50%;
-
-    background: #777;
-
-    transition:
-        background 0.4s ease,
-        box-shadow 0.4s ease;
-}
-
-.section-home.is-second-state
-.home-switch::after {
-    background: #ff3b30;
-
-    box-shadow:
-        0 0 10px rgba(255, 59, 48, .8);
+.switch-image--two {
+    opacity: 0;
 }
 
 
-.home-switch:hover {
-    transform:
-        translateX(-50%)
-        scale(1.04);
+/* ESTADO 2 */
 
-    box-shadow:
-        inset 0 0 0 4px #292929,
-        inset 0 0 0 7px #050505,
-        0 20px 45px rgba(0, 0, 0, 0.55);
+.section-home.state-two .switch-image--one {
+    opacity: 0;
 }
 
-.home-switch:active {
-    transform:
-        translateX(-50%)
-        scale(.97);
+.section-home.state-two .switch-image--two {
+    opacity: 1;
 }
 
 
 /* ==========================================================
-   REVEAL DEL HOME
+   PEGATINAS EN ESTADO 2
    ========================================================== */
 
-.section-home .home-title,
-.section-home .home-sticker,
-.section-home .home-switch {
+/*
+   En el segundo estado ya no queremos que se puedan arrastrar.
+   JS añadirá .is-navigation
+*/
+
+.home-sticker.is-navigation {
+    cursor: pointer;
+    touch-action: auto;
+}
+
+
+/* ==========================================================
+   ANIMACIÓN AL CAMBIAR DE ESTADO
+   ========================================================== */
+
+.section-home.state-changing .home-sticker {
     opacity: 0;
 
-    animation:
-        homeEntrance 1s cubic-bezier(.16, 1, .3, 1) forwards;
-}
-
-.section-home .home-title {
-    animation-delay: .15s;
-}
-
-.section-home .home-sticker {
-    animation-delay: .35s;
-}
-
-.section-home .home-switch {
-    animation-delay: .5s;
-}
-
-
-@keyframes homeEntrance {
-
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-    }
-
+    transform:
+        translate(-50%, -50%)
+        scale(.7)
+        rotate(20deg);
 }
 
 
@@ -746,104 +767,101 @@ h2 span {
    RESPONSIVE
    ========================================================== */
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 
     .section-home {
         min-height: 100svh;
     }
 
-    .home-sticker {
-        width: clamp(120px, 25vw, 220px);
-    }
-
-    .home-sticker--3d {
-        left: 8%;
-        top: 22%;
-    }
-
-    .home-sticker--ilustracion {
-        left: 45%;
-        top: 25%;
-    }
-
-    .home-sticker--packaging {
-        left: 68%;
-        top: 30%;
-    }
-
-    .home-sticker--editorial {
-        left: 8%;
-        top: 48%;
-    }
-
-    .home-sticker--redes {
-        left: 32%;
-        top: 57%;
-    }
-
-    .home-sticker--sobre-mi {
-        left: 58%;
-        top: 52%;
-    }
-
-    .section-home.is-second-state
-    .home-sticker--3d {
-        left: 5%;
-        top: 13%;
-    }
-
-    .section-home.is-second-state
-    .home-sticker--ilustracion {
-        left: 53%;
-        top: 10%;
-    }
-
-    .section-home.is-second-state
-    .home-sticker--packaging {
-        left: 69%;
-        top: 30%;
-    }
-
-    .section-home.is-second-state
-    .home-sticker--editorial {
-        left: 34%;
-        top: 33%;
-    }
-
-    .section-home.is-second-state
-    .home-sticker--redes {
-        left: 10%;
-        top: 59%;
-    }
-
-    .section-home.is-second-state
-    .home-sticker--sobre-mi {
-        left: 57%;
-        top: 55%;
-    }
-}
-
-
-@media (max-width: 600px) {
-
     .home-title {
-        top: 5%;
+        top: 8%;
     }
 
     .home-title h1 {
-        font-size: clamp(2.5rem, 12vw, 5rem);
+        font-size: clamp(2.8rem, 12vw, 6rem);
     }
 
     .home-sticker {
-        width: clamp(100px, 29vw, 160px);
+        width: clamp(100px, 25vw, 170px);
+    }
+
+    .sticker-sobre-mi {
+        left: 52%;
+        top: 54%;
+    }
+
+    .sticker-redes {
+        left: 4%;
+        top: 48%;
+    }
+
+    .sticker-packaging {
+        right: 4%;
+        top: 32%;
+    }
+
+    .sticker-ilustracion {
+        left: 45%;
+        top: 30%;
+    }
+
+    .sticker-3d {
+        left: 5%;
+        top: 20%;
+    }
+
+    .sticker-editorial {
+        right: 5%;
+        bottom: 22%;
     }
 
     .home-switch {
+        bottom: 3%;
+
         width: 110px;
-        bottom: 4%;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .home-sticker {
+        width: 100px;
     }
 
-}
+    .sticker-sobre-mi {
+        width: 125px;
+    }
+
+    .sticker-redes {
+        left: 2%;
+        top: 45%;
+    }
+
+    .sticker-packaging {
+        right: 2%;
+        top: 30%;
+    }
+
+    .sticker-ilustracion {
+        left: 40%;
+        top: 26%;
+    }
+
+    .sticker-3d {
+        left: 2%;
+        top: 17%;
+    }
+
+    .sticker-editorial {
+        right: 2%;
+        bottom: 20%;
+    }
+
+    .home-switch {
+        width: 90px;
+    }
+ }
 
 
 /* ---------- SOBRE MÍ ---------- */
@@ -1190,4 +1208,159 @@ h2 span {
         opacity: 1;
         transform: none;
     }
+}
+
+
+/* ==========================================================
+   HOME — RESPONSIVE MÓVIL
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    /* ------------------------------------------------------
+       HOME
+    ------------------------------------------------------ */
+
+    .section-home {
+        width: 100%;
+        height: 100svh;
+        min-height: 100svh;
+
+        padding: 0;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    /* ------------------------------------------------------
+       TÍTULO GUISANDO DISEÑO
+       ------------------------------------------------------ */
+
+    .home-title {
+        position: absolute;
+
+        top: 5%;
+        left: 50%;
+
+        width: 100%;
+
+        transform: translateX(-50%);
+
+        z-index: 20;
+
+        text-align: center;
+
+        pointer-events: none;
+    }
+
+    .home-title h1 {
+        margin: 0;
+
+        font-family: var(--font-display);
+        font-size: clamp(2.5rem, 12vw, 5rem);
+        line-height: 0.85;
+
+        color: white;
+    }
+
+
+    /* ------------------------------------------------------
+       PEGATINAS
+    ------------------------------------------------------ */
+
+    .home-sticker {
+        position: absolute;
+
+        width: auto;
+        height: auto;
+
+        z-index: 10;
+
+        touch-action: none;
+
+        user-select: none;
+        -webkit-user-select: none;
+
+        cursor: grab;
+    }
+
+    .home-sticker:active {
+        cursor: grabbing;
+    }
+
+
+    /* ------------------------------------------------------
+       TAMAÑOS DE LAS PEGATINAS EN MÓVIL
+       ------------------------------------------------------ */
+
+    .home-sticker.sticker-sobre-mi {
+        width: 39vw;
+        max-width: 170px;
+    }
+
+    .home-sticker.sticker-redes {
+        width: 34vw;
+        max-width: 150px;
+    }
+
+    .home-sticker.sticker-packaging {
+        width: 34vw;
+        max-width: 150px;
+    }
+
+    .home-sticker.sticker-ilustracion {
+        width: 36vw;
+        max-width: 155px;
+    }
+
+    .home-sticker.sticker-3d {
+        width: 38vw;
+        max-width: 165px;
+    }
+
+    .home-sticker.sticker-editorial {
+        width: 38vw;
+        max-width: 165px;
+    }
+
+
+    /* ------------------------------------------------------
+       BOTÓN CIRCULAR
+       ------------------------------------------------------ */
+
+    #home-switch {
+        position: absolute;
+
+        left: 50%;
+        bottom: 3%;
+
+        transform: translateX(-50%);
+
+        width: 200px;
+        height: 200px;
+
+        max-width: 250px;
+        max-height: 250px;
+
+        z-index: 50;
+
+        cursor: pointer;
+
+        touch-action: manipulation;
+    }
+
+
+    /* ------------------------------------------------------
+       OCULTAR ELEMENTOS DE LA HOME ORIGINAL
+       ------------------------------------------------------ */
+
+    .home-content {
+        display: none;
+    }
+
+    .home-projects {
+        display: none;
+    }
+
 }
