@@ -864,124 +864,330 @@ h2 span {
  }
 
 
-/* ---------- SOBRE MÍ ---------- */
+/* ==========================================================
+   SOBRE MÍ — COMPOSICIÓN VISUAL
+   ========================================================== */
 
-.section-about {
-    background: var(--coral);
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: clamp(2rem, 7vw, 8rem);
-    align-items: center;
-}
-
-.about-image {
-    overflow: hidden;
-    border-radius: var(--radius);
-}
-
-.about-image img {
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-}
-
-.about-text {
-    max-width: 38rem;
-}
-
-.large-text {
-    margin: 0 0 2rem;
-    font-size: clamp(2rem, 4vw, 4.5rem);
-    line-height: 0.95;
-}
-
-.about-text > p:not(.large-text) {
-    max-width: 30rem;
-    font-size: 1.1rem;
-}
-
-
-/* ---------- LINK ---------- */
-
-.text-link {
-    display: inline-block;
-    margin-top: 2rem;
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 0.25rem;
-}
-
-
-/* ---------- PROYECTOS ---------- */
-
-.project-section {
-    min-height: auto;
-}
-
-.project-redes {
-    background: var(--yellow);
-}
-
-.project-packaging {
-    background: var(--orange);
-}
-
-.project-ilustracion {
-    background: var(--green);
-}
-
-.project-3d {
-    background: var(--coral);
-}
-
-.project-editorial {
-    background: var(--yellow);
-}
-
-.project-intro {
-    max-width: 38rem;
-    margin-bottom: 5rem;
-    font-size: clamp(1.5rem, 3vw, 3rem);
-    line-height: 1;
-}
-
-
-/* ---------- GRID DE PROYECTOS ---------- */
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1rem, 2vw, 2rem);
-}
-
-.project-card {
+.about-section {
     position: relative;
-    display: block;
+
+    width: 100%;
+    height: 100svh;
+    min-height: 700px;
+
     overflow: hidden;
-    border-radius: var(--radius);
+
+    background: #263b31;
 }
 
-.project-card img {
+
+/* ==========================================================
+   FONDO
+   ========================================================== */
+
+.about-background {
+    position: absolute;
+
+    inset: 0;
+
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 100%;
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+.about-background img {
+    width: 100%;
+    height: 100%;
+
     object-fit: cover;
+
+    object-position: center;
+}
+
+
+/* ==========================================================
+   ELEMENTOS
+   ========================================================== */
+
+.about-element {
+    position: absolute;
+
+    z-index: 2;
+
+    pointer-events: auto;
+
+    transform-origin: center center;
+}
+
+
+/* Todas las imágenes */
+
+.about-element img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    user-select: none;
+    -webkit-user-drag: none;
 
     transition:
-        transform 0.8s cubic-bezier(.16, 1, .3, 1),
-        filter 0.5s ease;
+        transform 0.45s cubic-bezier(.16, 1, .3, 1),
+        filter 0.45s ease;
 }
 
-.project-card:hover img {
-    transform: scale(1.04);
+
+/* ==========================================================
+   HOVER
+   SOLO TIENE SENTIDO EN ORDENADOR
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .about-element:hover {
+        z-index: 20;
+    }
+
+    .about-element:hover img {
+        transform: scale(1.04);
+        filter: brightness(1.04);
+    }
+
 }
 
-.project-grid--masonry .project-card:nth-child(2) {
-    margin-top: 8rem;
+
+/* ==========================================================
+   01 — LISTA DE HABILIDADES
+   ========================================================== */
+
+.about-skills {
+
+    left: 8.5%;
+    top: 8.5%;
+
+    width: 25%;
+
+    transform: rotate(-13deg);
 }
 
-.project-grid--masonry .project-card:nth-child(4) {
-    margin-top: -4rem;
+
+/* ==========================================================
+   02 — ESTUDIOS
+   ========================================================== */
+
+.about-studies {
+
+    left: 30%;
+    top: 11%;
+
+    width: 26%;
+
+    transform: rotate(0deg);
+}
+
+
+/* ==========================================================
+   03 — MENÚ RECURSOS
+   ========================================================== */
+
+.about-resources {
+
+    right: 11.5%;
+    top: 11%;
+
+    width: 25%;
+
+    transform: rotate(0deg);
+}
+
+
+/* ==========================================================
+   04 — FOTO PERSONAL
+   ========================================================== */
+
+.about-photo {
+
+    left: 36.5%;
+    top: 34%;
+
+    width: 18%;
+
+    transform: rotate(7deg);
+
+    z-index: 7;
+}
+
+
+/* ==========================================================
+   05 — BOLSA
+   ========================================================== */
+
+.about-bag {
+
+    left: 12%;
+    top: 39%;
+
+    width: 19%;
+
+    transform: rotate(-8deg);
+
+    z-index: 6;
+}
+
+
+/* ==========================================================
+   06 — ZANAHORIAS
+   ========================================================== */
+
+.about-carrots {
+
+    left: 30%;
+    top: 39%;
+
+    width: 12%;
+
+    transform: rotate(5deg);
+
+    z-index: 5;
+}
+
+
+/* ==========================================================
+   07 — TOMATE
+   ========================================================== */
+
+.about-tomato {
+
+    left: 32%;
+    top: 68%;
+
+    width: 11%;
+
+    transform: rotate(-7deg);
+
+    z-index: 9;
+}
+
+
+/* ==========================================================
+   08 — OBJETO ROJO
+   ========================================================== */
+
+.about-red-object {
+
+    left: 55%;
+    top: 24%;
+
+    width: 10%;
+
+    transform: rotate(8deg);
+
+    z-index: 6;
+}
+
+
+/* ==========================================================
+   09 — OBJETO AZUL
+   ========================================================== */
+
+.about-blue-object {
+
+    left: 62%;
+    top: 62%;
+
+    width: 7%;
+
+    transform: rotate(-12deg);
+
+    z-index: 8;
+}
+
+
+/* ==========================================================
+   10 — PERSONAJE
+   ========================================================== */
+
+.about-character {
+
+    left: 27%;
+    top: 63%;
+
+    width: 8%;
+
+    transform: rotate(-5deg);
+
+    z-index: 10;
+}
+
+
+/* ==========================================================
+   11 — PEGATINA SOBRE MÍ
+   ========================================================== */
+
+.about-sticker {
+
+    left: 4%;
+    bottom: 5%;
+
+    width: 25%;
+
+    transform: rotate(12deg);
+
+    z-index: 15;
+}
+
+
+/* ==========================================================
+   12 — OBJETO SUPERIOR
+   ========================================================== */
+
+.about-top-object {
+
+    right: 27%;
+    top: 1.5%;
+
+    width: 10%;
+
+    transform: rotate(-4deg);
+
+    z-index: 8;
+}
+
+
+/* ==========================================================
+   13 — OBJETO INFERIOR
+   ========================================================== */
+
+.about-bottom-object {
+
+    right: 32%;
+    bottom: 8%;
+
+    width: 10%;
+
+    transform: rotate(-5deg);
+
+    z-index: 8;
+}
+
+
+/* ==========================================================
+   14 — CONTACTO
+   ========================================================== */
+
+.about-contact {
+
+    right: 3%;
+    top: 36%;
+
+    width: 32%;
+
+    transform: rotate(7deg);
+
+    z-index: 5;
 }
 
 
@@ -991,24 +1197,13 @@ h2 span {
 
 .reveal {
     opacity: 0;
-    transform: translateY(4rem);
+
     transition:
-        opacity 0.9s cubic-bezier(.16, 1, .3, 1),
-        transform 1s cubic-bezier(.16, 1, .3, 1);
-}
-
-.reveal--left {
-    transform: translateX(-5rem);
-}
-
-.reveal--right {
-    transform: translateX(5rem);
+        opacity 0.9s cubic-bezier(.16, 1, .3, 1);
 }
 
 .reveal.is-visible {
-    opacity: 1;
-    transform: translate(0, 0);
-}
+    opacity: 1; }
 
 
 /* ---------- FOOTER ---------- */
