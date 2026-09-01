@@ -632,6 +632,113 @@ homeStickers.forEach((sticker) => {
 
 
 /* ==========================================================
+   REDES SOCIALES — MODAL
+   ========================================================== */
+
+const redesModal = document.querySelector("#redes-modal");
+const redesEtiqueta = document.querySelector(".redes-etiqueta");
+const redesModalClose = document.querySelector(".redes-modal-close");
+
+
+/* ==========================================================
+   ABRIR MODAL
+   ========================================================== */
+
+if (redesEtiqueta && redesModal) {
+
+    redesEtiqueta.addEventListener("click", (event) => {
+
+        event.stopPropagation();
+
+        redesModal.classList.add("is-open");
+
+        redesModal.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add("modal-open");
+
+    });
+
+}
+
+
+/* ==========================================================
+   CERRAR CON X
+   ========================================================== */
+
+if (redesModalClose && redesModal) {
+
+    redesModalClose.addEventListener("click", () => {
+
+        closeRedesModal();
+
+    });
+
+}
+
+
+/* ==========================================================
+   CERRAR HACIENDO CLICK FUERA
+   ========================================================== */
+
+if (redesModal) {
+
+    redesModal.addEventListener("click", (event) => {
+
+        /*
+         * Solo cerramos si se pulsa sobre
+         * el fondo oscuro.
+         */
+
+        if (event.target === redesModal) {
+
+            closeRedesModal();
+
+        }
+
+    });
+
+}
+
+
+/* ==========================================================
+   FUNCIÓN CERRAR
+   ========================================================== */
+
+function closeRedesModal() {
+
+    if (!redesModal) return;
+
+    redesModal.classList.remove("is-open");
+
+    redesModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    document.body.classList.remove("modal-open");
+
+}
+
+
+/* ==========================================================
+   ESC — CERRAR MODAL
+   ========================================================== */
+
+document.addEventListener("keydown", (event) => {
+
+    if (event.key === "Escape") {
+
+        closeRedesModal();
+
+    }
+
+});
+
+
+/* ==========================================================
    06 — PREPARACIÓN PARA 3D
    ========================================================== */
 
