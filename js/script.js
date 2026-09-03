@@ -632,79 +632,47 @@ homeStickers.forEach((sticker) => {
 
 
 /* ==========================================================
-   REDES SOCIALES — MODAL
+   07 — MODAL REDES SOCIALES
    ========================================================== */
 
-const redesModal = document.querySelector("#redes-modal");
-const redesEtiqueta = document.querySelector(".redes-etiqueta");
-const redesModalClose = document.querySelector(".redes-modal-close");
+const redesModal =
+    document.querySelector("#redes-modal");
+
+const redesModalContent =
+    document.querySelector(".redes-modal-content");
+
+const redesModalClose =
+    document.querySelector(".redes-modal-close");
+
+const redesEtiqueta =
+    document.querySelector("#redes-etiqueta");
+
+const redesBandeja =
+    document.querySelector("#redes-bandeja");
 
 
 /* ==========================================================
    ABRIR MODAL
    ========================================================== */
 
-if (redesEtiqueta && redesModal) {
+function openRedesModal() {
 
-    redesEtiqueta.addEventListener("click", (event) => {
+    if (!redesModal) return;
 
-        event.stopPropagation();
+    redesModal.classList.add("is-open");
 
-        redesModal.classList.add("is-open");
+    redesModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
-        redesModal.setAttribute(
-            "aria-hidden",
-            "false"
-        );
+    document.body.classList.add("modal-open");
 
-        document.body.classList.add("modal-open");
-
-    });
-
-}
+ }
 
 
 /* ==========================================================
-   CERRAR CON X
-   ========================================================== */
-
-if (redesModalClose && redesModal) {
-
-    redesModalClose.addEventListener("click", () => {
-
-        closeRedesModal();
-
-    });
-
-}
-
-
-/* ==========================================================
-   CERRAR HACIENDO CLICK FUERA
-   ========================================================== */
-
-if (redesModal) {
-
-    redesModal.addEventListener("click", (event) => {
-
-        /*
-         * Solo cerramos si se pulsa sobre
-         * el fondo oscuro.
-         */
-
-        if (event.target === redesModal) {
-
-            closeRedesModal();
-
-        }
-
-    });
-
-}
-
-
-/* ==========================================================
-   FUNCIÓN CERRAR
+   CERRAR MODAL
    ========================================================== */
 
 function closeRedesModal() {
@@ -724,18 +692,91 @@ function closeRedesModal() {
 
 
 /* ==========================================================
-   ESC — CERRAR MODAL
+   CLICK EN ETIQUETA
    ========================================================== */
 
-document.addEventListener("keydown", (event) => {
+if (redesEtiqueta) {
 
-    if (event.key === "Escape") {
+    redesEtiqueta.addEventListener(
+        "click",
+        openRedesModal
+    );
 
-        closeRedesModal();
+}
+
+
+/* ==========================================================
+   CLICK EN BANDEJA
+   ========================================================== */
+
+if (redesBandeja) {
+
+    redesBandeja.addEventListener(
+        "click",
+        openRedesModal
+    );
+
+}
+
+
+/* ==========================================================
+   BOTÓN X
+   ========================================================== */
+
+if (redesModalClose) {
+
+    redesModalClose.addEventListener(
+        "click",
+        closeRedesModal
+    );
+
+}
+
+
+/* ==========================================================
+   CLICK FUERA DEL MODAL
+   ========================================================== */
+
+if (redesModal) {
+
+    redesModal.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target === redesModal
+            ) {
+
+                closeRedesModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   ESCAPE
+   ========================================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Escape" &&
+            redesModal &&
+            redesModal.classList.contains("is-open")
+        ) {
+
+            closeRedesModal();
+
+        }
 
     }
-
-});
+);
 
 
 /* ==========================================================
