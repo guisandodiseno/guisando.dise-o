@@ -777,26 +777,24 @@
 
     </section>
 
- </section>
-
-<!-- ==========================================================
+    <!-- ==========================================================
      MODAL GLOBAL DE PROYECTOS
      ========================================================== -->
 
- <div
+<div
     class="projects-modal"
     id="projects-modal"
     aria-hidden="true"
- >
+>
 
     <div
         class="projects-modal-content"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="project-modal-title"
-    >
+     >
 
         <!-- CERRAR -->
+
         <button
             class="projects-modal-close"
             id="projects-modal-close"
@@ -808,45 +806,20 @@
 
 
         <!-- ANTERIOR -->
+
         <button
-            class="projects-modal-arrow projects-modal-prev"
+            class="projects-modal-prev"
             id="projects-modal-prev"
             type="button"
             aria-label="Proyecto anterior"
         >
-            ←
-        </button>
-
-
-        <!-- SIGUIENTE -->
-        <button
-            class="projects-modal-arrow projects-modal-next"
-            id="projects-modal-next"
-            type="button"
-            aria-label="Proyecto siguiente"
-        >
-            →
+            ‹
         </button>
 
 
         <!-- CONTENIDO -->
-        <div class="projects-modal-media">
 
-            <!-- IMAGEN -->
-            <img
-                id="project-modal-image"
-                src=""
-                alt=""
-            >
-
-            <!-- VÍDEO -->
-            <video
-                id="project-modal-video"
-                controls
-                playsinline
-            >
-            </video>
-
+        <div class="projects-modal-media" id="projects-modal-media">
         </div>
 
 
@@ -854,20 +827,38 @@
 
             <p
                 class="projects-modal-category"
-                id="project-modal-category"
+                id="projects-modal-category"
             ></p>
 
-            <h3 id="project-modal-title"></h3>
+            <h3
+                id="projects-modal-title"
+            ></h3>
 
-            <p
-                id="project-modal-description"
-            ></p>
+            <div
+                id="projects-modal-description"
+            ></div>
 
         </div>
 
+
+        <!-- SIGUIENTE -->
+
+        <button
+            class="projects-modal-next"
+            id="projects-modal-next"
+            type="button"
+            aria-label="Proyecto siguiente"
+        >
+            ›
+        </button>
+
     </div>
 
- </div>
+</div>
+
+ </section>
+
+
 
     </main>
 

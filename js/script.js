@@ -805,7 +805,7 @@ const projectsData = [
        ====================================================== */
 
     {
-        id: "3d-01",
+        id: "3d-1",
 
         category: "Diseño 3D",
 
@@ -823,7 +823,7 @@ const projectsData = [
 
 
     {
-        id: "3d-02",
+        id: "3d-2",
 
         category: "Diseño 3D",
 
@@ -898,6 +898,467 @@ const projectsData = [
     }
 
 ];
+
+
+/* ==========================================================
+   MODAL DE PROYECTOS
+   ========================================================== */
+
+const projectModal =
+    document.getElementById("projects-modal");
+
+const projectModalContent =
+    document.querySelector(".projects-modal-content");
+
+const projectModalClose =
+    document.getElementById("projects-modal-close");
+
+const projectModalMedia =
+    document.getElementById("projects-modal-media");
+
+const projectModalCategory =
+    document.getElementById("projects-modal-category");
+
+const projectModalTitle =
+    document.getElementById("projects-modal-title");
+
+const projectModalDescription =
+    document.getElementById("projects-modal-description");
+
+const projectModalPrev =
+    document.getElementById("projects-modal-prev");
+
+const projectModalNext =
+    document.getElementById("projects-modal-next");
+
+
+let currentProjectList = [];
+let currentProjectIndex = 0;
+
+
+/* ==========================================================
+   ABRIR MODAL
+   ========================================================== */
+
+function openProjectModal(projectId) {
+
+    if (!projectModal) return;
+
+
+    const project =
+        projectsData.find(
+            (item) => item.id === projectId
+        );
+
+
+    if (!project) {
+
+        console.error(
+            "No se encontró el proyecto:",
+            projectId
+        );
+
+        return;
+
+    }
+
+
+    /*
+     * Proyectos de la misma categoría
+     * para el carrusel.
+     */
+
+    currentProjectList =
+        projectsData.filter(
+            (item) =>
+                item.category === project.category
+        );
+
+
+    currentProjectIndex =
+        currentProjectList.findIndex(
+            (item) => item.id === projectId
+        );
+
+
+    renderProject();
+
+
+    projectModal.classList.add("is-open");
+
+    projectModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "modal-open"
+    );
+
+}
+
+
+/* ==========================================================
+   MOSTRAR PROYECTO
+   ========================================================== */
+
+function renderProject() {
+
+    const project =
+        currentProjectList[
+            currentProjectIndex
+        ];
+
+
+    if (!project) return;
+
+
+    /* ======================================================
+       TEXTO
+       ====================================================== */
+
+    projectModalCategory.textContent =
+        project.category;
+
+
+    projectModalTitle.textContent =
+        project.title;
+
+
+    projectModalDescription.innerHTML =
+        `<p>${project.description}</p>`;
+
+
+    /* ======================================================
+       MEDIA
+       ====================================================== */
+
+    projectModalMedia.innerHTML = "";
+
+
+    if (project.type === "image") {
+
+        const image =
+            document.createElement("img");
+
+        image.src = project.media;
+
+        image.alt = project.title;
+
+        image.className =
+            "projects-modal-project-image";
+
+        projectModalMedia.appendChild(
+            image
+        );
+
+    }
+
+
+    if (project.type === "video") {
+
+        const video =
+            document.createElement("video");
+
+        video.src = project.media;
+
+        video.controls = true;
+
+        video.autoplay = true;
+
+        video.loop = true;
+
+        video.playsInline = true;
+
+        video.className =
+            "projects-modal-project-video";
+
+        projectModalMedia.appendChild(
+            video
+        );
+
+    }
+
+
+    /* ======================================================
+       FLECHAS
+       ====================================================== */
+
+    const hasCarousel =
+        currentProjectList.length > 1;
+
+
+    projectModalPrev.style.display =
+        hasCarousel ? "flex" : "none";
+
+
+    projectModalNext.style.display =
+        hasCarousel ? "flex" : "none";
+
+}
+
+
+/* ==========================================================
+   CERRAR MODAL
+   ========================================================== */
+
+function closeProjectModal() {
+
+    if (!projectModal) return;
+
+
+    projectModal.classList.remove(
+        "is-open"
+    );
+
+
+    projectModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body.classList.remove(
+        "modal-open"
+    );
+
+
+    /*
+     * Parar vídeo al cerrar.
+     */
+
+    const video =
+        projectModalMedia.querySelector(
+            "video"
+        );
+
+
+    if (video) {
+
+        video.pause();
+
+    }
+
+}
+
+
+/* ==========================================================
+   BOTÓN CERRAR
+   ========================================================== */
+
+if (projectModalClose) {
+
+    projectModalClose.addEventListener(
+        "click",
+        closeProjectModal
+    );
+
+}
+
+
+/* ==========================================================
+   CLIC FUERA
+   ========================================================== */
+
+if (projectModal) {
+
+    projectModal.addEventListener(
+        "click",
+        (event) => {
+
+            if (
+                event.target === projectModal
+            ) {
+
+                closeProjectModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   ANTERIOR
+   ========================================================== */
+
+if (projectModalPrev) {
+
+    projectModalPrev.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+
+            if (
+                currentProjectList.length <= 1
+            ) return;
+
+
+            currentProjectIndex--;
+
+
+            if (
+                currentProjectIndex < 0
+            ) {
+
+                currentProjectIndex =
+                    currentProjectList.length - 1;
+
+            }
+
+
+            renderProject();
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   SIGUIENTE
+   ========================================================== */
+
+if (projectModalNext) {
+
+    projectModalNext.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+
+            if (
+                currentProjectList.length <= 1
+            ) return;
+
+
+            currentProjectIndex++;
+
+
+            if (
+                currentProjectIndex >=
+                currentProjectList.length
+            ) {
+
+                currentProjectIndex = 0;
+
+            }
+
+
+            renderProject();
+
+        }
+    );
+
+}
+
+
+/* ==========================================================
+   TECLADO
+   ========================================================== */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            !projectModal ||
+            !projectModal.classList.contains(
+                "is-open"
+            )
+        ) return;
+
+
+        if (event.key === "Escape") {
+
+            closeProjectModal();
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft" &&
+            currentProjectList.length > 1
+        ) {
+
+            currentProjectIndex--;
+
+
+            if (
+                currentProjectIndex < 0
+            ) {
+
+                currentProjectIndex =
+                    currentProjectList.length - 1;
+
+            }
+
+
+            renderProject();
+
+        }
+
+
+        if (
+            event.key === "ArrowRight" &&
+            currentProjectList.length > 1
+        ) {
+
+            currentProjectIndex++;
+
+
+            if (
+                currentProjectIndex >=
+                currentProjectList.length
+            ) {
+
+                currentProjectIndex = 0;
+
+            }
+
+
+            renderProject();
+
+        }
+
+    }
+);
+
+
+/* ==========================================================
+   ELEMENTOS CLICABLES
+   ========================================================== */
+
+document
+    .querySelectorAll("[data-project]")
+    .forEach((element) => {
+
+        element.addEventListener(
+            "click",
+            (event) => {
+
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                const projectId =
+                    element.dataset.project;
+
+
+                openProjectModal(
+                    projectId
+                );
+
+            }
+        );
+
+    });
 
 
 /* ==========================================================
