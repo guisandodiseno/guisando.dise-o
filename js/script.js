@@ -632,124 +632,36 @@ homeStickers.forEach((sticker) => {
 
 
 /* ==========================================================
-   07 — MODAL REDES SOCIALES
+   DISEÑO 3D — BANDEJA CERRADA / ABIERTA
    ========================================================== */
 
-const redesModal =
-    document.querySelector("#redes-modal");
-
-const redesModalContent =
-    document.querySelector(".redes-modal-content");
-
-const redesModalClose =
-    document.querySelector(".redes-modal-close");
-
-const redesEtiqueta =
-    document.querySelector("#redes-etiqueta");
-
-const redesBandeja =
-    document.querySelector("#redes-bandeja");
-
-
-/* ==========================================================
-   ABRIR MODAL
-   ========================================================== */
-
-function openRedesModal() {
-
-    if (!redesModal) return;
-
-    redesModal.classList.add("is-open");
-
-    redesModal.setAttribute(
-        "aria-hidden",
-        "false"
+const diseno3dComposition =
+    document.getElementById(
+        "diseno3d-composition"
     );
 
-    document.body.classList.add("modal-open");
-
- }
-
-
-/* ==========================================================
-   CERRAR MODAL
-   ========================================================== */
-
-function closeRedesModal() {
-
-    if (!redesModal) return;
-
-    redesModal.classList.remove("is-open");
-
-    redesModal.setAttribute(
-        "aria-hidden",
-        "true"
+const diseno3dClosed =
+    document.getElementById(
+        "diseno3d-closed"
     );
 
-    document.body.classList.remove("modal-open");
 
-}
+if (
+    diseno3dComposition &&
+    diseno3dClosed
+) {
 
-
-/* ==========================================================
-   CLICK EN ETIQUETA
-   ========================================================== */
-
-if (redesEtiqueta) {
-
-    redesEtiqueta.addEventListener(
+    diseno3dClosed.addEventListener(
         "click",
-        openRedesModal
-    );
+        () => {
 
-}
+            /*
+             * Cambiamos al estado abierto.
+             */
 
-
-/* ==========================================================
-   CLICK EN BANDEJA
-   ========================================================== */
-
-if (redesBandeja) {
-
-    redesBandeja.addEventListener(
-        "click",
-        openRedesModal
-    );
-
-}
-
-
-/* ==========================================================
-   BOTÓN X
-   ========================================================== */
-
-if (redesModalClose) {
-
-    redesModalClose.addEventListener(
-        "click",
-        closeRedesModal
-    );
-
-}
-
-
-/* ==========================================================
-   CLICK FUERA DEL MODAL
-   ========================================================== */
-
-if (redesModal) {
-
-    redesModal.addEventListener(
-        "click",
-        (event) => {
-
-            if (
-                event.target === redesModal
-            ) {
-
-                closeRedesModal();
-
-            }
+            diseno3dComposition.classList.add(
+                "is-open"
+            );
 
         }
     );
@@ -758,25 +670,234 @@ if (redesModal) {
 
 
 /* ==========================================================
-   ESCAPE
+   PROYECTOS — MODAL + CARRUSEL
    ========================================================== */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
+ 
+/* ==========================================================
+   DATOS DE LOS PROYECTOS
+   ========================================================== */
 
-        if (
-            event.key === "Escape" &&
-            redesModal &&
-            redesModal.classList.contains("is-open")
-        ) {
+const projectsData = [
 
-            closeRedesModal();
+    /* ======================================================
+       REDES SOCIALES
+       ====================================================== */
 
-        }
+    {
+        id: "redes-01",
 
+        category: "Redes Sociales",
+
+        title:
+            "Contenido publicitario para Instagram",
+
+        description:
+            "BICHO RARO es una pieza de danza contemporánea que busca reflejar la realidad de una identidad queer mediante el movimiento. La promoción en redes sociales se plantea para dar visibilidad a la pieza, su proceso creativo y el universo visual del proyecto.",
+
+        type: "image",
+
+        media:
+            "media/img/rrss-bichoraro.png"
+    },
+
+
+    /* ======================================================
+       PACKAGING
+       ====================================================== */
+
+    {
+        id: "packaging-01",
+
+        category: "Packaging",
+
+        title:
+            "Diseño de packaging",
+
+        description:
+            "Proyecto de diseño de packaging desarrollado a partir de una dirección de arte concreta, trabajando la presentación del producto, la identidad visual y la composición del conjunto.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-packaging-01.png"
+    },
+
+
+    {
+        id: "packaging-02",
+
+        category: "Packaging",
+
+        title:
+            "Identidad y presentación",
+
+        description:
+            "Desarrollo gráfico aplicado al packaging y construcción de una propuesta visual coherente con el concepto del proyecto.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-packaging-02.png"
+    },
+
+
+    {
+        id: "packaging-03",
+
+        category: "Packaging",
+
+        title:
+            "Diseño de producto",
+
+        description:
+            "Aplicación de recursos gráficos, composición y dirección de arte sobre diferentes elementos de packaging.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-packaging-03.png"
+    },
+
+
+    /* ======================================================
+       ILUSTRACIÓN
+       ====================================================== */
+
+    {
+        id: "ilustracion-01",
+
+        category: "Ilustración",
+
+        title:
+            "Proyecto de ilustración",
+
+        description:
+            "Proyecto de ilustración basado en la experimentación gráfica y la creación de un universo visual propio.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-ilustracion-01.png"
+    },
+
+
+    {
+        id: "ilustracion-02",
+
+        category: "Ilustración",
+
+        title:
+            "Ilustración editorial",
+
+        description:
+            "Desarrollo de una propuesta de ilustración aplicada a diferentes soportes y piezas gráficas.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-ilustracion-02.png"
+    },
+
+
+    /* ======================================================
+       DISEÑO 3D
+       ====================================================== */
+
+    {
+        id: "3d-01",
+
+        category: "Diseño 3D",
+
+        title:
+            "Modelado y render 3D",
+
+        description:
+            "Proyecto desarrollado mediante modelado tridimensional, materiales, iluminación y renderizado.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-3d-01.png"
+    },
+
+
+    {
+        id: "3d-02",
+
+        category: "Diseño 3D",
+
+        title:
+            "Animación 3D",
+
+        description:
+            "Desarrollo de una pieza audiovisual mediante técnicas de modelado y animación 3D.",
+
+        type: "video",
+
+        media:
+            "media/video/proyecto-3d.mp4"
+    },
+
+
+    /* ======================================================
+       EDITORIAL
+       ====================================================== */
+
+    {
+        id: "editorial-01",
+
+        category: "Editorial / Cartelería",
+
+        title:
+            "Diseño editorial",
+
+        description:
+            "Proyecto editorial desarrollado mediante composición, tipografía, fotografía y dirección de arte.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-editorial-01.png"
+    },
+
+
+    {
+        id: "editorial-02",
+
+        category: "Editorial / Cartelería",
+
+        title:
+            "Cartelería",
+
+        description:
+            "Diseño de cartelería y piezas gráficas para comunicar un concepto visual de manera directa.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-editorial-02.png"
+    },
+
+
+    {
+        id: "editorial-03",
+
+        category: "Editorial / Cartelería",
+
+        title:
+            "Proyecto gráfico",
+
+        description:
+            "Desarrollo de diferentes piezas gráficas dentro de una misma dirección de arte.",
+
+        type: "image",
+
+        media:
+            "media/img/modal-editorial-03.png"
     }
-);
+
+];
 
 
 /* ==========================================================

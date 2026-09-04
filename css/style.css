@@ -1192,66 +1192,116 @@ h2 span {
 
 
 /* ==========================================================
-   REDES SOCIALES
+   PROYECTOS
    ========================================================== */
 
- .section-redes {
-    position: relative;
-
+.projects-section {
     width: 100%;
-
-    min-height: 100svh;
-
-    /*
-       MUY IMPORTANTE:
-       permitimos que los elementos de la composición
-       puedan sobresalir ligeramente.
-    */
-    overflow: visible;
-
-    box-sizing: border-box;
-
-    background: #ff931e;
-
-    padding-top: clamp(140px, 15vh, 220px);
+    overflow: hidden;
 }
 
 
 /* ==========================================================
-   TÍTULO
+   SECCIÓN INDIVIDUAL
    ========================================================== */
 
-.redes-heading {
+.project-section {
     position: relative;
 
-    z-index: 1;
+     width: 100%;
+    min-height: 100svh;
 
-    margin: 0;
+    overflow: hidden;
 
-    padding: 0 clamp(20px, 5vw, 80px);
-
-    pointer-events: none;
+    box-sizing: border-box;
 }
 
 
-/*
-   El título queda detrás de las imágenes.
-*/
+/* ==========================================================
+   COLORES
+   ========================================================== */
 
-.redes-heading h2 {
+.project-redes {
+    background: #ff931e;
+}
+
+.project-packaging {
+    background: #accb65;
+}
+
+.project-ilustracion {
+    background: #ff6f43;
+}
+
+.project-3d {
+    background: #ffee76;
+}
+
+.project-editorial {
+    background: #ffffff;
+}
+
+
+/* ==========================================================
+   TÍTULOS
+   ========================================================== */
+
+.project-heading {
     position: relative;
 
-    z-index: 1;
+    z-index: 2;
 
+    display: flex;
+
+    align-items: baseline;
+
+    gap: clamp(15px, 2vw, 30px);
+
+    padding:
+        clamp(70px, 7vw, 110px)
+        clamp(25px, 5vw, 80px)
+        0;
+
+    box-sizing: border-box;
+}
+
+
+.project-number {
+    font-family: var(--font-body);
+
+    font-size: clamp(10px, 1vw, 14px);
+
+    flex-shrink: 0;
+}
+
+
+.project-heading h2 {
     margin: 0;
 
     font-family: var(--font-display);
 
-    font-size: clamp(4rem, 10vw, 11rem);
+    font-size: clamp(
+        4rem,
+        7.5vw,
+        9rem
+    );
 
-    line-height: 0.85;
+    line-height: .82;
 
     white-space: nowrap;
+}
+
+
+.project-heading h2 span {
+    display: inline-block;
+
+    margin-left: .08em;
+
+    font-family: Arial, sans-serif;
+
+    font-size: .55em;
+
+    vertical-align: top;
 }
 
 
@@ -1259,29 +1309,305 @@ h2 span {
    COMPOSICIÓN
    ========================================================== */
 
-.redes-composition {
+.project-composition {
     position: relative;
 
     width: 100%;
 
-    /*
-       Dejamos bastante espacio vertical para que
-       la bandeja entre completamente.
-    */
-    height: 76vh;
+    height: calc(100svh - 150px);
 
-    min-height: 680px;
+    min-height: 550px;
 
     margin-top: -2vh;
 
     z-index: 5;
+ }
 
-    /*
-       IMPORTANTE:
-       no ocultamos la composición aquí.
-       Así ningún elemento se corta.
-    */
-    overflow: visible;
+
+/* ==========================================================
+   IMAGEN PRINCIPAL
+   ========================================================== */
+
+.project-main-image {
+    position: absolute;
+
+    display: block;
+
+    border: 0;
+
+    padding: 0;
+
+     margin: 0;
+
+     background: transparent;
+
+     cursor: pointer;
+
+    appearance: none;
+
+    z-index: 5;
+}
+
+
+.project-main-image img {
+    display: block;
+
+     width: 100%;
+     height: auto;
+     user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+/* ==========================================================
+   ETIQUETAS
+   ========================================================== */
+
+.project-label {
+    position: absolute;
+
+    display: block;
+
+    padding: 0;
+
+    margin: 0;
+
+    border: 0;
+
+     background: transparent;
+    cursor: pointer;
+
+    appearance: none;
+
+    z-index: 10;
+}
+
+
+.project-label img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+/* ==========================================================
+   REDES SOCIALES
+   ========================================================== */
+
+.project-redes .project-main-image {
+
+    width: min(67vw, 1050px);
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+
+.project-redes .project-label {
+
+    width: min(21vw, 330px);
+
+    left: 4%;
+
+    bottom: 5%;
+
+    transform: rotate(-7deg);
+
+}
+
+/* ==========================================================
+   PACKAGING
+   ========================================================== */
+
+.project-packaging .project-main-image {
+
+    width: min(63vw, 1000px);
+
+    left: 50%;
+
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+/* ETIQUETA 1 */
+
+.packaging-label-1 {
+
+    width: min(15vw, 230px);
+
+    left: 8%;
+
+    bottom: 15%;
+
+    transform: rotate(-3deg);
+}
+
+
+/* ETIQUETA 2 */
+
+.packaging-label-2 {
+
+    width: min(17vw, 260px);
+
+    right: 30%;
+
+    top: 23%;
+
+    transform: rotate(4deg);
+}
+
+
+/* ETIQUETA 3 */
+
+.packaging-label-3 {
+
+    width: min(15vw, 230px);
+
+    right: 9%;
+
+    bottom: 15%;
+
+    transform: rotate(-8deg);
+ }
+
+/* ==========================================================
+   ILUSTRACIÓN
+   ========================================================== */
+
+.project-ilustracion .project-main-image {
+
+    width: min(65vw, 1000px);
+
+    left: 50%;
+
+    top: 52%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+/* ETIQUETA 1 */
+
+.ilustracion-label-1 {
+
+    width: min(17vw, 260px);
+
+    left: 7%;
+
+    top: 30%;
+
+    transform: rotate(-12deg);
+}
+
+
+/* ETIQUETA 2 */
+
+.ilustracion-label-2 {
+
+    width: min(17vw, 260px);
+
+    right: 8%;
+
+    bottom: 22%;
+
+    transform: rotate(5deg);
+ }
+
+/* ==========================================================
+   DISEÑO 3D
+   ========================================================== */
+
+.section-3d {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100svh;
+
+    overflow: hidden;
+
+    background: #ffee76;
+
+    box-sizing: border-box;
+
+    padding-top: clamp(
+        100px,
+        10vh,
+        150px
+    );
+}
+
+
+/* ==========================================================
+   TÍTULO
+   ========================================================== */
+
+.section-3d .project-heading {
+
+    position: relative;
+
+    z-index: 2;
+
+    padding:
+        0
+        clamp(25px, 5vw, 80px);
+
+}
+
+
+.section-3d .project-heading h2 {
+
+    margin: 0;
+
+    font-family: var(--font-display);
+
+    font-size:
+        clamp(
+            4rem,
+            10vw,
+            11rem
+        );
+
+    line-height: .85;
+
+}
+
+
+/* ==========================================================
+   COMPOSICIÓN
+   ========================================================== */
+
+.diseno3d-composition {
+
+    position: relative;
+
+    width: 100%;
+
+    height: clamp(
+        550px,
+        75svh,
+        800px
+    );
+
+    margin-top: -20px;
+
+    z-index: 5;
+
 }
 
 
@@ -1289,7 +1615,8 @@ h2 span {
    ELEMENTOS GENERALES
    ========================================================== */
 
-.redes-element {
+.diseno3d-tray {
+
     position: absolute;
 
     display: block;
@@ -1299,126 +1626,119 @@ h2 span {
     -webkit-user-select: none;
 
     -webkit-user-drag: none;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
 }
 
 
 /* ==========================================================
-   BANDEJA
+   BANDEJA CERRADA
    ========================================================== */
 
-.redes-bandeja {
+.diseno3d-tray-closed {
 
-    width: 62vw;
+    width: min(
+        42vw,
+        620px
+    );
 
-    max-width: 1050px;
+    max-width: 620px;
 
-    min-width: 650px;
-
-    /*
-       CENTRO DE LA COMPOSICIÓN
-    */
     left: 50%;
 
-    /*
-       La subimos para que haya
-       espacio debajo.
-    */
-    top: 42%;
+    top: 48%;
 
     transform:
-        translate(-50%, -50%);
+        translate(
+            -50%,
+            -50%
+        );
 
-    z-index: 2;
+    z-index: 4;
 
     cursor: pointer;
 }
 
 
 /* ==========================================================
-   MÓVIL IZQUIERDO
+   BANDEJA ABIERTA
    ========================================================== */
 
-.redes-movil {
+.diseno3d-tray-open {
 
-    width: 25vw;
+    width: min(
+        52vw,
+        760px
+    );
 
-    max-width: 430px;
+    max-width: 760px;
 
-    min-width: 260px;
+    left: 50%;
 
-    /*
-       MÁS A LA IZQUIERDA.
-
-       El centro del móvil queda aproximadamente
-       sobre el centro del recipiente izquierdo.
-    */
-    left: 23%;
-
-    /*
-       Misma zona vertical que la bandeja.
-    */
-    top: 37%;
+    top: 48%;
 
     transform:
-        translate(-50%, -50%);
+        translate(
+            -50%,
+            -50%
+        );
+
+    z-index: 5;
+
+    cursor: pointer;
 
     /*
-       Siempre por encima de la bandeja.
+       Inicialmente invisible.
     */
-    z-index: 8;
+
+    opacity: 0;
+
+    visibility: hidden;
 
     pointer-events: none;
+
 }
 
 
 /* ==========================================================
-   HUEVO FRITO
+   ESTADO ABIERTO
    ========================================================== */
 
-.redes-huevo {
+.diseno3d-composition.is-open
+.diseno3d-tray-closed {
 
-    width: 18vw;
+    opacity: 0;
 
-    max-width: 310px;
-
-    min-width: 190px;
-
-    /*
-       Pegado a la esquina inferior izquierda
-       de la composición y SUPERPUESTO a la bandeja.
-    */
-    left: 3%;
-
-    top: 62%;
-
-    transform:
-        rotate(-8deg);
-
-    z-index: 10;
+    visibility: hidden;
 
     pointer-events: none;
+
+}
+
+
+.diseno3d-composition.is-open
+.diseno3d-tray-open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
 }
 
 
 /* ==========================================================
-   ETIQUETA AMARILLA
+   ETIQUETAS
    ========================================================== */
 
-.redes-etiqueta {
+.diseno3d-label {
 
-    width: 20vw;
+    position: absolute;
 
-    max-width: 350px;
-
-    min-width: 210px;
-
-    /*
-       Aproximadamente en el centro inferior
-       de la bandeja.
-    */
-    left: 43%;
-
-    top: 60%;
+    display: block;
 
     padding: 0;
 
@@ -1428,21 +1748,27 @@ h2 span {
 
     background: transparent;
 
-    /*
-       Inclinación original.
-    */
-    transform:
-        rotate(-6deg);
+    appearance: none;
 
-    z-index: 12;
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
 
     cursor: pointer;
 
-    appearance: none;
+    z-index: 10;
+
+    transition:
+        opacity .35s ease,
+        visibility .35s ease,
+        transform .3s ease,
+        filter .3s ease;
 }
 
 
-.redes-etiqueta img {
+.diseno3d-label img {
 
     display: block;
 
@@ -1450,11 +1776,69 @@ h2 span {
 
     height: auto;
 
-    pointer-events: none;
-
     user-select: none;
 
+    -webkit-user-select: none;
+
     -webkit-user-drag: none;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   ETIQUETA 1
+   ========================================================== */
+
+.diseno3d-label-1 {
+
+    width: min(
+        16vw,
+        230px
+    );
+
+    left: 22%;
+
+    top: 63%;
+
+    transform: rotate(-5deg);
+
+}
+
+
+/* ==========================================================
+   ETIQUETA 2
+   ========================================================== */
+
+.diseno3d-label-2 {
+
+    width: min(
+        17vw,
+        240px
+    );
+
+    right: 21%;
+
+    top: 55%;
+
+    transform: rotate(7deg);
+
+}
+
+
+/* ==========================================================
+   MOSTRAR ETIQUETAS
+   ========================================================== */
+
+.diseno3d-composition.is-open
+.diseno3d-label {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+
 }
 
 
@@ -1464,55 +1848,366 @@ h2 span {
 
 @media (hover: hover) and (pointer: fine) {
 
-    .redes-etiqueta {
-        transition:
-            transform 0.25s ease,
-            filter 0.25s ease;
-    }
 
+    /* BANDEJA CERRADA */
 
-    .redes-etiqueta:hover {
+    .diseno3d-tray-closed:hover {
+
         transform:
-            rotate(-6deg)
-            scale(1.06);
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1.035);
 
         filter:
             drop-shadow(
-                0 12px 15px rgba(0, 0, 0, .20)
+                0 15px 20px
+                rgba(0,0,0,.18)
             );
+
     }
 
 
-    .redes-bandeja {
-        transition:
-            transform 0.3s ease,
-            filter 0.3s ease;
-    }
+    /* BANDEJA ABIERTA */
 
+    .diseno3d-tray-open:hover {
 
-    .redes-bandeja:hover {
         transform:
-            translate(-50%, -50%)
-            scale(1.015);
+            translate(
+                -50%,
+                -50%
+            )
+            scale(1.025);
 
         filter:
             drop-shadow(
-                0 12px 15px rgba(0, 0, 0, .15)
+                0 15px 20px
+                rgba(0,0,0,.18)
             );
+
     }
+
+
+    /* ETIQUETA 1 */
+
+    .diseno3d-label-1:hover {
+
+        transform:
+            rotate(-7deg)
+            scale(1.08);
+
+        filter:
+            drop-shadow(
+                0 10px 15px
+                rgba(0,0,0,.18)
+            );
+
+    }
+
+
+    /* ETIQUETA 2 */
+
+    .diseno3d-label-2:hover {
+
+        transform:
+            rotate(9deg)
+            scale(1.08);
+
+        filter:
+            drop-shadow(
+                0 10px 15px
+                rgba(0,0,0,.18)
+            );
+
+    }
+
 }
 
 
 /* ==========================================================
+   TABLET
+   ========================================================== */
+
+@media (max-width: 1024px) {
+
+    .section-3d {
+
+        min-height: 800px;
+
+        padding-top: 110px;
+
+    }
+
+
+    .diseno3d-composition {
+
+        height: 600px;
+
+    }
+
+
+    .diseno3d-tray-closed {
+
+        width: 52vw;
+
+        top: 47%;
+
+    }
+
+
+    .diseno3d-tray-open {
+
+        width: 65vw;
+
+        top: 47%;
+
+    }
+
+
+    .diseno3d-label-1 {
+
+        width: 20vw;
+
+        left: 12%;
+
+        top: 62%;
+
+    }
+
+
+    .diseno3d-label-2 {
+
+        width: 21vw;
+
+        right: 10%;
+
+        top: 55%;
+
+    }
+
+}
+
+
+/* ==========================================================
+   MÓVIL
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .section-3d {
+
+        min-height: 700px;
+
+        padding-top: 90px;
+
+    }
+
+
+    /* TÍTULO */
+
+    .section-3d .project-heading {
+
+        padding: 0 20px;
+
+    }
+
+
+    .section-3d .project-heading h2 {
+
+        font-size:
+            clamp(
+                3.2rem,
+                14vw,
+                5rem
+            );
+
+        white-space: normal;
+
+        line-height: .85;
+
+    }
+
+
+    /* COMPOSICIÓN */
+
+    .diseno3d-composition {
+
+        height: 520px;
+
+        margin-top: 0;
+
+    }
+
+
+    /* BANDEJA CERRADA */
+
+    .diseno3d-tray-closed {
+
+        width: 78vw;
+
+        max-width: none;
+
+        top: 48%;
+
+    }
+
+
+    /* BANDEJA ABIERTA */
+
+    .diseno3d-tray-open {
+
+        width: 94vw;
+
+        max-width: none;
+
+        top: 48%;
+
+    }
+
+
+    /* ETIQUETA 1 */
+
+    .diseno3d-label-1 {
+
+        width: 30vw;
+
+        left: 2%;
+
+        top: 65%;
+
+    }
+
+
+    /* ETIQUETA 2 */
+
+    .diseno3d-label-2 {
+
+        width: 31vw;
+
+        right: 2%;
+
+        top: 57%;
+
+    }
+
+}
+
+/* ==========================================================
+   EDITORIAL / CARTELERÍA
+   ========================================================== */
+
+.project-editorial .project-main-image {
+
+    width: min(67vw, 1050px);
+
+    left: 50%;
+
+    top: 53%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+/* ETIQUETA 1 */
+
+.editorial-label-1 {
+
+    width: min(15vw, 230px);
+
+    left: 8%;
+
+    bottom: 17%;
+
+    transform: rotate(-4deg);
+}
+
+
+/* ETIQUETA 2 */
+
+.editorial-label-2 {
+
+    width: min(16vw, 240px);
+
+    left: 43%;
+
+    bottom: 8%;
+
+    transform: rotate(5deg);
+}
+
+
+/* ETIQUETA 3 */
+
+.editorial-label-3 {
+
+    width: min(17vw, 250px);
+
+    right: 7%;
+
+    bottom: 15%;
+
+    transform: rotate(-7deg);
+ }
+
+/* ==========================================================
+   HOVER — ORDENADOR
+   ========================================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .project-main-image,
+    .project-label {
+
+        transition:
+            transform .3s ease,
+            filter .3s ease;
+    }
+
+
+    .project-main-image:hover,
+    .project-label:hover {
+
+        filter:
+            drop-shadow(
+                0 15px 20px rgba(0,0,0,.18)
+            );
+    }
+
+
+    .project-label:hover {
+
+        transform:
+            rotate(0deg)
+            scale(1.06);
+    }
+
+
+    .project-redes .project-main-image:hover,
+    .project-packaging .project-main-image:hover,
+    .project-ilustracion .project-main-image:hover,
+    .project-3d .project-main-image:hover,
+    .project-editorial .project-main-image:hover {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.025);
+    }
+
+ }
+
+ /* ==========================================================
    MODAL
    ========================================================== */
 
- .redes-modal {
+.projects-modal {
+
     position: fixed;
 
     inset: 0;
 
-    z-index: 9999;
+    z-index: 99999;
 
     display: flex;
 
@@ -1524,7 +2219,8 @@ h2 span {
 
     box-sizing: border-box;
 
-    background: rgba(0, 0, 0, 0.55);
+    background:
+        rgba(0,0,0,.65);
 
     opacity: 0;
 
@@ -1533,65 +2229,66 @@ h2 span {
     pointer-events: none;
 
     transition:
-        opacity 0.25s ease,
-        visibility 0.25s ease;
+        opacity .3s ease,
+        visibility .3s ease;
 }
 
 
-/* ==========================================================
-   MODAL ABIERTO
-   ========================================================== */
+.projects-modal.is-open {
 
- .redes-modal.is-open {
-    opacity: 1;
+     opacity: 1;
 
     visibility: visible;
 
     pointer-events: auto;
- }
+}
 
 
 /* ==========================================================
-   CONTENIDO MODAL
+   CONTENEDOR
    ========================================================== */
 
- .redes-modal-content {
+.projects-modal-content {
+
     position: relative;
 
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr .85fr;
 
-    width: min(1200px, 90vw);
+    width: min(1200px, 92vw);
 
-    max-height: 85vh;
+    max-height: 88vh;
 
     overflow: hidden;
 
+    border-radius: 30px;
+
     background: #ff931e;
-
-    border-radius: 35px;
-
-    box-sizing: border-box;
- }
+}
 
 
 /* ==========================================================
-   IMAGEN DEL MODAL
+   MEDIA
    ========================================================== */
 
- .redes-modal-image {
+.projects-modal-media {
+
+    position: relative;
+
     width: 100%;
 
     height: 100%;
 
-    min-height: 550px;
+    min-height: 600px;
 
     overflow: hidden;
- }
+}
 
 
- .redes-modal-image img {
+.projects-modal-media img,
+.projects-modal-media video {
+
     display: block;
 
     width: 100%;
@@ -1599,60 +2296,85 @@ h2 span {
     height: 100%;
 
     object-fit: cover;
- }
+}
+
+
+.projects-modal-media video {
+
+    display: none;
+}
 
 
 /* ==========================================================
-   TEXTO DEL MODAL
+   INFORMACIÓN
    ========================================================== */
 
- .redes-modal-info {
+.projects-modal-info {
+
     display: flex;
 
     flex-direction: column;
 
     justify-content: center;
 
-    padding: clamp(35px, 5vw, 80px);
+    padding:
+        clamp(30px, 5vw, 75px);
 
     box-sizing: border-box;
- }
+}
 
 
- .redes-modal-info h3 {
+.projects-modal-category {
+
+    margin: 0 0 20px;
+
+    font-family: var(--font-body);
+
+    font-size: 14px;
+
+    text-transform: uppercase;
+}
+
+
+.projects-modal-info h3 {
+
     margin: 0 0 35px;
 
     font-family: "Spikle", sans-serif;
 
-    font-size: clamp(25px, 4vw, 50px);
+    font-size:
+        clamp(2rem, 4vw, 4rem);
 
-    line-height: 0.95;
- }
+    line-height: .9;
+}
 
 
- .redes-modal-info p {
+.projects-modal-info p:last-child {
+
     margin: 0;
 
     font-family: "Acumin", sans-serif;
 
-    font-size: clamp(14px, 1.5vw, 18px);
+    font-size:
+        clamp(15px, 1.4vw, 19px);
 
-    line-height: 1.35;
- }
+    line-height: 1.4;
+}
 
 
 /* ==========================================================
-   BOTÓN X
+   X
    ========================================================== */
 
- .redes-modal-close {
+.projects-modal-close {
+
     position: absolute;
 
-    top: 15px;
+    top: 10px;
 
-    right: 20px;
+    right: 15px;
 
-    z-index: 20;
+    z-index: 30;
 
     width: 50px;
 
@@ -1660,13 +2382,13 @@ h2 span {
 
     padding: 0;
 
-    border: none;
+    border: 0;
 
     background: transparent;
 
     font-family: Arial, sans-serif;
 
-    font-size: 45px;
+    font-size: 42px;
 
     line-height: 1;
 
@@ -1674,10 +2396,53 @@ h2 span {
 }
 
 
-body.modal-open {
-    overflow: hidden;
+/* ==========================================================
+   FLECHAS
+   ========================================================== */
+
+.projects-modal-arrow {
+
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 30;
+
+    width: 55px;
+
+    height: 55px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.85);
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transform:
+        translateY(-50%);
 }
 
+
+.projects-modal-prev {
+
+    left: 15px;
+}
+
+
+.projects-modal-next {
+
+    right: 15px;
+}
+
+
+body.projects-modal-open {
+
+    overflow: hidden;
+}
 
 /* ==========================================================
    TABLET
@@ -1685,116 +2450,94 @@ body.modal-open {
 
 @media (max-width: 1024px) {
 
-    .section-redes {
+    .project-section {
+
         min-height: 850px;
-
-        padding-top: 130px;
     }
 
 
-    .redes-heading h2 {
-        font-size: clamp(4rem, 10vw, 7rem);
+    .project-heading {
+
+        padding-top: 80px;
     }
 
 
-     .redes-composition {
+    .project-heading h2 {
+
+        font-size: clamp(
+            3.5rem,
+            9vw,
+            6rem
+        );
+    }
+
+
+    .project-composition {
+
         height: 700px;
 
         min-height: 0;
-
-        margin-top: 0;
     }
 
 
-    /* ------------------------------
-       BANDEJA
-    ------------------------------ */
+    /* REDES */
 
-    .redes-bandeja {
-        width: 78vw;
+    .project-redes .project-main-image {
 
-        min-width: 0;
-
-        left: 50%;
-
-        top: 45%;
-
-        transform:
-            translate(-50%, -50%);
+        width: 80vw;
     }
 
 
-    /* ------------------------------
-       MÓVIL
-    ------------------------------ */
+    .project-redes .project-label {
 
-    .redes-movil {
-        width: 32vw;
-
-        min-width: 0;
-
-        /*
-           Sobre el lado izquierdo
-           de la bandeja.
-        */
-        left: 27%;
-
-        top: 40%;
-
-        transform:
-            translate(-50%, -50%);
-    }
-
-
-    /* ------------------------------
-       HUEVO
-    ------------------------------ */
-
-    .redes-huevo {
         width: 24vw;
 
-        min-width: 0;
+        left: 3%;
 
-        left: 4%;
-
-        top: 62%;
-
-        bottom: auto;
-
-        transform: rotate(-8deg);
+        bottom: 4%;
     }
 
 
-    /* ------------------------------
-       ETIQUETA
-    ------------------------------ */
+    /* PACKAGING */
 
-    .redes-etiqueta {
-        width: 27vw;
+    .project-packaging .project-main-image {
 
-        min-width: 0;
-
-        left: 43%;
-
-        right: auto;
-
-        top: 64%;
-
-        bottom: auto;
-
-        transform: rotate(-6deg);
+        width: 78vw;
     }
 
 
-    /* ------------------------------
-       MODAL
-    ------------------------------ */
+    /* ILUSTRACIÓN */
 
-    .redes-modal-content {
-        width: 92vw;
-     }
- }
+    .project-ilustracion .project-main-image {
 
+        width: 78vw;
+    }
+
+
+    /* 3D */
+
+    .project-3d .project-main-image {
+
+        width: 70vw;
+    }
+
+
+    /* EDITORIAL */
+
+    .project-editorial .project-main-image {
+
+        width: 80vw;
+    }
+
+
+    /* MODAL */
+
+    .projects-modal-content {
+
+        width: 94vw;
+    }
+
+}
 
 /* ==========================================================
    MÓVIL
@@ -1802,10 +2545,13 @@ body.modal-open {
 
 @media (max-width: 700px) {
 
-    .section-redes {
-        min-height: 760px;
+    .project-section {
 
-        padding-top: 110px;
+        min-height: 700px;
+
+        height: auto;
+
+        overflow: hidden;
     }
 
 
@@ -1813,21 +2559,37 @@ body.modal-open {
        TÍTULO
        ====================================================== */
 
-    .redes-heading {
-        padding: 0 20px;
+    .project-heading {
+
+        padding:
+            65px
+            20px
+            0;
+
+        gap: 10px;
+
+        align-items: baseline;
     }
 
 
-    .redes-heading h2 {
-        font-size: clamp(
-            3.2rem,
-            14vw,
-            5rem
-        );
+    .project-number {
+
+        font-size: 9px;
+    }
+
+
+    .project-heading h2 {
+
+        font-size:
+            clamp(
+                2.8rem,
+                12vw,
+                4.5rem
+            );
 
         white-space: normal;
 
-        line-height: 0.85;
+        line-height: .82;
     }
 
 
@@ -1835,108 +2597,193 @@ body.modal-open {
        COMPOSICIÓN
        ====================================================== */
 
-    .redes-composition {
-        width: 100%;
+    .project-composition {
 
-        height: 600px;
+        height: 520px;
 
         min-height: 0;
 
-        margin-top: 10px;
+        margin-top: 0;
     }
 
 
     /* ======================================================
-       BANDEJA
+       REDES
        ====================================================== */
 
-     .redes-bandeja {
-        width: 105vw;
+    .project-redes .project-main-image {
 
-        max-width: none;
-
-        min-width: 0;
+        width: 100vw;
 
         left: 50%;
 
-        /*
-           Un poco más arriba para que
-           no toque el borde inferior.
-        */
-        top: 46%;
-
-        transform:
-            translate(-50%, -50%);
+        top: 50%;
     }
 
 
-    /* ======================================================
-       MÓVIL IZQUIERDO
-       ====================================================== */
+    .project-redes .project-label {
 
-     .redes-movil {
-        width: 43vw;
-
-        max-width: none;
-
-        min-width: 0;
-
-        /*
-           Sobre el recipiente izquierdo.
-        */
-        left: 25%;
-
-        top: 40%;
-
-        transform:
-            translate(-50%, -50%);
-    }
-
-
-    /* ======================================================
-       HUEVO
-       ====================================================== */
-
-     .redes-huevo {
         width: 31vw;
 
-        max-width: none;
-
-        min-width: 0;
-
-        /*
-           Superpuesto a la bandeja.
-        */
         left: 2%;
 
-        top: 61%;
-
-        bottom: auto;
-
-        transform: rotate(-8deg);
+        bottom: 3%;
     }
 
 
     /* ======================================================
-       ETIQUETA
+       PACKAGING
        ====================================================== */
 
-    .redes-etiqueta {
-        width: 39vw;
+    .project-packaging .project-main-image {
 
-        max-width: none;
+        width: 105vw;
 
-        min-width: 0;
+        left: 50%;
 
-        left: 42%;
+        top: 50%;
+    }
 
-        right: auto;
 
-        top: 63%;
+    .packaging-label-1 {
 
-        bottom: auto;
+        width: 27vw;
 
-        transform: rotate(-6deg);
+        left: 3%;
+
+        bottom: 7%;
+    }
+
+
+    .packaging-label-2 {
+
+        width: 30vw;
+
+        right: 5%;
+
+        top: 20%;
+    }
+
+
+    .packaging-label-3 {
+
+        width: 27vw;
+
+        right: 3%;
+
+        bottom: 5%;
+    }
+
+
+    /* ======================================================
+       ILUSTRACIÓN
+       ====================================================== */
+
+    .project-ilustracion .project-main-image {
+
+        width: 105vw;
+
+        left: 50%;
+
+        top: 50%;
+    }
+
+
+    .ilustracion-label-1 {
+
+        width: 28vw;
+
+        left: 3%;
+
+        top: 25%;
+    }
+
+
+    .ilustracion-label-2 {
+
+        width: 28vw;
+
+        right: 3%;
+
+        bottom: 10%;
+    }
+
+
+    /* ======================================================
+       DISEÑO 3D
+       ====================================================== */
+
+    .project-3d .project-main-image {
+
+        width: 95vw;
+
+        left: 50%;
+
+        top: 52%;
+    }
+
+
+    .diseno3d-label-1 {
+
+        width: 28vw;
+
+        left: 5%;
+
+        bottom: 8%;
+    }
+
+
+    .diseno3d-label-2 {
+
+        width: 28vw;
+
+        right: 5%;
+
+        top: 20%;
+    }
+
+
+    /* ======================================================
+       EDITORIAL
+       ====================================================== */
+
+    .project-editorial .project-main-image {
+
+        width: 108vw;
+
+        left: 50%;
+
+        top: 50%;
+    }
+
+
+    .editorial-label-1 {
+
+        width: 27vw;
+
+        left: 3%;
+
+        bottom: 8%;
+    }
+
+
+    .editorial-label-2 {
+
+        width: 29vw;
+
+        left: 36%;
+
+        bottom: 3%;
+    }
+
+
+    .editorial-label-3 {
+
+        width: 28vw;
+
+        right: 3%;
+
+        bottom: 10%;
     }
 
 
@@ -1944,38 +2791,40 @@ body.modal-open {
        MODAL MÓVIL
        ====================================================== */
 
-     .redes-modal {
-        padding: 15px;
-     }
+    .projects-modal {
+
+        padding: 12px;
+    }
 
 
-     .redes-modal-content {
+    .projects-modal-content {
+
         display: flex;
 
         flex-direction: column;
 
         width: 100%;
 
-        max-height: 92vh;
+        max-height: 94vh;
 
-        border-radius: 25px;
+        border-radius: 22px;
 
         overflow-y: auto;
-     }
+    }
 
 
-     .redes-modal-image {
-        width: 100%;
+    .projects-modal-media {
 
         height: 42vh;
 
         min-height: 230px;
 
         flex-shrink: 0;
-     }
+    }
 
 
-    .redes-modal-info {
+    .projects-modal-info {
+
         padding:
             30px
             25px
@@ -1983,84 +2832,56 @@ body.modal-open {
     }
 
 
-     .redes-modal-info h3 {
+    .projects-modal-info h3 {
+
+        font-size: 2.4rem;
+
         margin-bottom: 20px;
-
-        font-size: 36px;
     }
 
 
-    .redes-modal-info p {
-        font-size: 17px;
+    .projects-modal-info p:last-child {
+
+        font-size: 16px;
     }
 
 
-     .redes-modal-close {
-        top: 8px;
+    .projects-modal-arrow {
 
-        right: 10px;
+        width: 43px;
+
+        height: 43px;
+
+        font-size: 19px;
+    }
+
+
+    .projects-modal-prev {
+
+        left: 8px;
+    }
+
+
+    .projects-modal-next {
+
+        right: 8px;
+    }
+
+
+    .projects-modal-close {
 
         width: 42px;
 
         height: 42px;
 
-        font-size: 38px;
+        top: 7px;
+
+        right: 8px;
+
+        font-size: 37px;
     }
+
 }
-
-
-/* ==========================================================
-   MÓVIL PEQUEÑO
-   ========================================================== */
-
-@media (max-width: 480px) {
-
-    .section-redes {
-        min-height: 690px;
-
-        padding-top: 100px;
-    }
-
-
-    .redes-composition {
-        height: 540px;
-    }
-
-
-    .redes-bandeja {
-        width: 112vw;
-
-        top: 45%;
-    }
-
-
-    .redes-movil {
-        width: 44vw;
-
-        left: 24%;
-
-        top: 39%;
-    }
-
-
-    .redes-huevo {
-        width: 32vw;
-
-        left: 1%;
-
-        top: 61%;
-    }
-
-
-    .redes-etiqueta {
-        width: 41vw;
-
-        left: 40%;
-
-        top: 64%;
-    }
-}
-
 
 /* ==========================================================
    REVEAL SYSTEM
