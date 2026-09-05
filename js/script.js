@@ -690,10 +690,10 @@ const projectsData = [
         category: "Redes Sociales",
 
         title:
-            "Contenido publicitario para Instagram",
+            "Contenido publicitario de Instagram para BICHO RARO",
 
         description:
-            "BICHO RARO es una pieza de danza contemporánea que busca reflejar la realidad de una identidad queer mediante el movimiento. La promoción en redes sociales se plantea para dar visibilidad a la pieza, su proceso creativo y el universo visual del proyecto.",
+            "BICHO RARO es una pieza de danza contemporánea que busca reflejar la realidad de una identidad queer mediante el movimiento. <br> <br>La promoción en redes sociales se plantea para dar visibilidad a la pieza, su proceso creativo y el universo visual del proyecto. Además de publicitar el merchandising de la pieza con contenido de stories.",
 
         type: "image",
 
@@ -712,15 +712,15 @@ const projectsData = [
         category: "Packaging",
 
         title:
-            "Diseño de packaging",
+            "Diseño etiqueta de vino para Celler Masroig",
 
         description:
-            "Proyecto de diseño de packaging desarrollado a partir de una dirección de arte concreta, trabajando la presentación del producto, la identidad visual y la composición del conjunto.",
+            "“Más que joven. El vino que, año tras año, vuelve para recordar nuestros orígenes, y que no debemos olvidar las costumbres. Porque el vino es celebración, fiesta y tradición”. <br> <br> Esta propuesta nace con el propósito de ir al centro del vino, reflejar la tradición volviendo a los orígenes. Mediante el visionado de varias fotografías antiguas de la recolecta de la uva, se ha ilustrado desde cero, una reinterpretación de dichas imágenes. Con diferentes texturas y colores que dan personalidad y vida a un escenario tradicional.",
 
         type: "image",
 
         media:
-            "media/img/modal-packaging-01.png"
+            "media/img/vino.png"
     },
 
 
@@ -730,15 +730,15 @@ const projectsData = [
         category: "Packaging",
 
         title:
-            "Identidad y presentación",
+            "Kit Hacer Tu Propia Máscara - Bicho Raro",
 
         description:
-            "Desarrollo gráfico aplicado al packaging y construcción de una propuesta visual coherente con el concepto del proyecto.",
+            "Diseño y creación de un Kit para hacer tu propia máscara, pensado para ser parte del merchandising de la pieza Bicho Raro. Se diseñó tanto el formato de la caja como las diferentes ilustraciones para las intrucciones de montaje y el propio packaging siguiendo la identidad visual del solo de danza. ",
 
         type: "image",
 
         media:
-            "media/img/modal-packaging-02.png"
+            "media/img/modal-kit3d.png"
     },
 
 
@@ -748,15 +748,15 @@ const projectsData = [
         category: "Packaging",
 
         title:
-            "Diseño de producto",
+            "EnLatadas",
 
         description:
-            "Aplicación de recursos gráficos, composición y dirección de arte sobre diferentes elementos de packaging.",
+            "¿Cómo hacer para que las legumbres sean más llamativas?. <br> EnLatadas busca fomentar una alimentación saludable y sostenible a través de un packaging innovador y reutilizable. <br> <br> Cada lata cuenta con un personaje único, diseñado en función de los valores nutricionales de la legumbre que representa. Estos personajes no solo aportan personalidad y cohesión al packaging, sino que también comunican de manera visual y atractiva los beneficios de cada alimento.",
 
         type: "image",
 
         media:
-            "media/img/modal-packaging-03.png"
+            "media/img/modal-enlatadas.png"
     },
 
 
@@ -770,10 +770,10 @@ const projectsData = [
         category: "Ilustración",
 
         title:
-            "Proyecto de ilustración",
+            "Juego Memorias Contigo",
 
         description:
-            "Proyecto de ilustración basado en la experimentación gráfica y la creación de un universo visual propio.",
+            "Ilustraciones creadas a partir de recuerdos personalizados según la persona. Se utilizaron tanto para el packaging como para las propias cartas del juego.",
 
         type: "image",
 
@@ -788,15 +788,15 @@ const projectsData = [
         category: "Ilustración",
 
         title:
-            "Ilustración editorial",
+            "Lyric Video D'amor Traficante - Ralphie Choo",
 
         description:
-            "Desarrollo de una propuesta de ilustración aplicada a diferentes soportes y piezas gráficas.",
+            "Ilustraciones creadas para el lyric vídeo de la canción D'amor Traficante. <br> <br> Tras la escucha de la canción se creó a un persoaje principal llamado Amor que nos va contando los versos de la canción en diferentes escenarios, también creados desde cero, acompañado de la letra. ",
 
-        type: "image",
+        type: "video",
 
         media:
-            "media/img/modal-ilustracion-02.png"
+            "media/video/lyric-video.mp4"
     },
 
 
@@ -810,15 +810,15 @@ const projectsData = [
         category: "Diseño 3D",
 
         title:
-            "Modelado y render 3D",
+            "Modelado y render 3D Para Spot Publicitario",
 
         description:
             "Proyecto desarrollado mediante modelado tridimensional, materiales, iluminación y renderizado.",
 
-        type: "image",
+        type: "video",
 
         media:
-            "media/img/modal-3d-01.png"
+            "media/video/Spot3D.mp4"
     },
 
 
@@ -828,15 +828,15 @@ const projectsData = [
         category: "Diseño 3D",
 
         title:
-            "Animación 3D",
+            "Modelado y render 3D para Yorokobu",
 
         description:
-            "Desarrollo de una pieza audiovisual mediante técnicas de modelado y animación 3D.",
+            "Para la portada de YOROKOBU, se ha creado en cinma 4D, un mundo imaginario donde tres osos de peluche flotan serenamente en el cielo, llevando al espectador a un universo onírico y nostálgico. <br> <br> La idea de esta escena nace de la fascinación por la suavidad y la ternura de los peluches, elementos que evocan sensaciones de calma y protección. <br> En este entorno flotante, los osos de peluche no solo son figuras entrañables, sino símbolos de un mundo idílico donde la inocencia y la fantasía prevalecen.",
 
-        type: "video",
+        type: "image",
 
         media:
-            "media/video/proyecto-3d.mp4"
+            "media/img/modal-yorokobu.png"
     },
 
 
@@ -1012,6 +1012,40 @@ function renderProject() {
 
 
     if (!project) return;
+
+        /* ======================================================
+       COLOR DEL MODAL SEGÚN CATEGORÍA
+       ====================================================== */
+
+    projectModal.classList.remove(
+        "modal-redes",
+        "modal-packaging",
+        "modal-ilustracion",
+        "modal-3d",
+        "modal-editorial"
+    );
+
+    if (project.category === "Redes Sociales") {
+
+        projectModal.classList.add("modal-redes");
+
+    } else if (project.category === "Packaging") {
+
+        projectModal.classList.add("modal-packaging");
+
+    } else if (project.category === "Ilustración") {
+
+        projectModal.classList.add("modal-ilustracion");
+
+    } else if (project.category === "Diseño 3D") {
+
+        projectModal.classList.add("modal-3d");
+
+    } else if (project.category === "Editorial / Cartelería") {
+
+        projectModal.classList.add("modal-editorial");
+
+    }
 
 
     /* ======================================================
