@@ -850,15 +850,15 @@ const projectsData = [
         category: "Editorial / Cartelería",
 
         title:
-            "Diseño editorial",
+            "Foyetos para la Exposición de Yoshitomo Nara - La Casa Encendida",
 
         description:
-            "Proyecto editorial desarrollado mediante composición, tipografía, fotografía y dirección de arte.",
+            "Yoshitomo Nara es un artista reconocido por su singular estilo que fusiona la inocencia de la infancia con una carga emocional profunda y compleja, reflejada en sus icónicas figuras de niños y animales. Su trabajo explora temas como la rebeldía, la soledad, el dolor y la introspección, provocando una reflexión íntima en quienes se acercan a su obra. La Casa Encendida, como espacio cultural de vanguardia en Madrid, se erige como el contexto perfecto para albergar una exposición que no solo muestra las piezas de Nara, sino que también invita a los visitantes a sumergirse en su universo personal.",
 
         type: "image",
 
         media:
-            "media/img/modal-editorial-01.png"
+            "media/img/modal-yoshitomo.png"
     },
 
 
@@ -868,10 +868,10 @@ const projectsData = [
         category: "Editorial / Cartelería",
 
         title:
-            "Cartelería",
+            "Revista Y punto.",
 
         description:
-            "Diseño de cartelería y piezas gráficas para comunicar un concepto visual de manera directa.",
+            "Y Punto es una revista independiente que nace como un punto de encuentro entre moda, arte, diseño, música, cine y cultura visual, con una mirada fresca, auténtica y sin filtros. Esta primera edición representa la materialización de un proyecto que busca visibilizar talento emergente y generar una experiencia editorial viva, interactiva y cercana. ",
 
         type: "image",
 
@@ -886,10 +886,10 @@ const projectsData = [
         category: "Editorial / Cartelería",
 
         title:
-            "Proyecto gráfico",
+            "Proyecto editorial GD",
 
         description:
-            "Desarrollo de diferentes piezas gráficas dentro de una misma dirección de arte.",
+            "Guisando Diseño es una colección de libros única que celebra el diseño en todas sus facetas: gráfico, moda, interiores y mucho más. Inspirada en la idea de mezclar y “guisar” lo mejor de cada disciplina, esta publicación es un espacio donde la creatividad, la innovación y la funcionalidad se encuentran. Además consta en cada edición de artistas invitados de otro ámbito, ya sea música, danza, pintura...",
 
         type: "image",
 
