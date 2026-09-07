@@ -693,7 +693,7 @@ const projectsData = [
             "Contenido publicitario de Instagram para BICHO RARO",
 
         description:
-            "BICHO RARO es una pieza de danza contemporánea que busca reflejar la realidad de una identidad queer mediante el movimiento. <br> <br>La promoción en redes sociales se plantea para dar visibilidad a la pieza, su proceso creativo y el universo visual del proyecto. Además de publicitar el merchandising de la pieza con contenido de stories.",
+            "BICHO RARO es una pieza de danza contemporánea que busca reflejar la realidad de una identidad queer mediante el movimiento. <br> <br>La promoción en redes sociales se plantea para dar visibilidad a la pieza, su proceso creativo y el universo visual del proyecto. Además de publicitar el merchandising de la pieza con contenido de stories como los mostrados en la imagen.",
 
         type: "image",
 
@@ -715,7 +715,7 @@ const projectsData = [
             "Diseño etiqueta de vino para Celler Masroig",
 
         description:
-            "“Más que joven. El vino que, año tras año, vuelve para recordar nuestros orígenes, y que no debemos olvidar las costumbres. Porque el vino es celebración, fiesta y tradición”. <br> <br> Esta propuesta nace con el propósito de ir al centro del vino, reflejar la tradición volviendo a los orígenes. Mediante el visionado de varias fotografías antiguas de la recolecta de la uva, se ha ilustrado desde cero, una reinterpretación de dichas imágenes. Con diferentes texturas y colores que dan personalidad y vida a un escenario tradicional.",
+            "“Más que joven. El vino que, año tras año, vuelve para recordar nuestros orígenes, y que no debemos olvidar las costumbres. Porque el vino es celebración, fiesta y tradición”. <br> <br> Esta propuesta nace con el propósito de ir al centro del vino, reflejar la tradición volviendo a los orígenes. <br> Mediante el visionado de varias fotografías antiguas de la recolecta de la uva, se ha ilustrado desde cero, una reinterpretación de dichas imágenes. Con diferentes texturas y colores que dan personalidad y vida a un escenario tradicional.",
 
         type: "image",
 
@@ -733,7 +733,7 @@ const projectsData = [
             "Kit Hacer Tu Propia Máscara - Bicho Raro",
 
         description:
-            "Diseño y creación de un Kit para hacer tu propia máscara, pensado para ser parte del merchandising de la pieza Bicho Raro. Se diseñó tanto el formato de la caja como las diferentes ilustraciones para las intrucciones de montaje y el propio packaging siguiendo la identidad visual del solo de danza. ",
+            "Diseño y creación de un Kit para hacer tu propia máscara, pensado para ser parte del merchandising de la pieza Bicho Raro, donde se utiliza una máscara-cráneo. <br> <br> El kit recoge todos los materiales e instrucciones necesarias para hacer una máscara siguiendo el método de la máscara usada en la pieza. <br> <br> Se diseñó tanto el formato de la caja como las diferentes ilustraciones para las intrucciones de montaje y el propio packaging siguiendo la identidad visual del solo de danza. ",
 
         type: "image",
 
@@ -751,7 +751,7 @@ const projectsData = [
             "EnLatadas",
 
         description:
-            "¿Cómo hacer para que las legumbres sean más llamativas?. <br> EnLatadas busca fomentar una alimentación saludable y sostenible a través de un packaging innovador y reutilizable. <br> <br> Cada lata cuenta con un personaje único, diseñado en función de los valores nutricionales de la legumbre que representa. Estos personajes no solo aportan personalidad y cohesión al packaging, sino que también comunican de manera visual y atractiva los beneficios de cada alimento.",
+            "¿Cómo hacer que las legumbres sean más llamativas? <br> EnLatadas busca fomentar una alimentación saludable y sostenible a través de un packaging innovador y reutilizable. <br> <br> Cada lata cuenta con un personaje único, diseñado en función de los valores nutricionales de la legumbre que representa. Estos personajes no solo aportan personalidad y cohesión al packaging, sino que también comunican de manera visual y atractiva junto con la paleta de color elegida, los beneficios de cada alimento.",
 
         type: "image",
 
@@ -778,7 +778,7 @@ const projectsData = [
         type: "image",
 
         media:
-            "media/img/modal-ilustracion-01.png"
+            "media/img/modal-Memorias.png"
     },
 
 
@@ -791,7 +791,7 @@ const projectsData = [
             "Lyric Video D'amor Traficante - Ralphie Choo",
 
         description:
-            "Ilustraciones creadas para el lyric vídeo de la canción D'amor Traficante. <br> <br> Tras la escucha de la canción se creó a un persoaje principal llamado Amor que nos va contando los versos de la canción en diferentes escenarios, también creados desde cero, acompañado de la letra. ",
+            "Ilustraciones creadas para el lyric vídeo de la canción D'amor Traficante. <br> <br> Tras la escucha de la canción se creó a un persoaje principal llamado Amor que nos va contando los versos de la canción en diferentes escenarios, también creados con ilustración, acompañado de la letra. <br> <br> El vídeo e ilustraciones fueron editadas y montadas posteriormente en Adobe After Effects. ",
 
         type: "video",
 
@@ -813,7 +813,7 @@ const projectsData = [
             "Modelado y render 3D Para Spot Publicitario",
 
         description:
-            "BICHO RARO es una pieza de danza que muestra la marginación por parte de la sociedad actual hacia lo abyecto, en especial hacia las identidades queer. En ella destaca el uso de una máscara-cráneo. <br> <br> El presente trabajo pretende ser una de las piezas audiovisuales del proyecto, siendo un spot publicitario para redes del kit “Hacer tu propia máscara”, un packaging que recoge todos los materiales e instrucciones necesarias para hacer una máscara siguiendo el método de la máscara usada en BICHO RARO. <br> <br> Este spot, pretende ser fiel a los espacios donde se rodó la pieza y presentar tanto la máscara y packaging en dichos espacios, para que se asemejen al universo del proyecto. ",
+            "El presente trabajo pretende ser una de las piezas audiovisuales de Bicho Raro, siendo un spot publicitario para redes del kit “Hacer tu propia máscara” <br> <br> Este spot, es fiel a los espacios donde se rodó la pieza y presenta tanto la máscara, protagonista de la pieza de danza, y packaging en dichos espacios, para que se asemejen al universo del proyecto. ",
 
         type: "video",
 
@@ -831,7 +831,7 @@ const projectsData = [
             "Modelado y render 3D para Yorokobu",
 
         description:
-            "Para la portada de YOROKOBU, se ha creado en cinma 4D, un mundo imaginario donde tres osos de peluche flotan serenamente en el cielo, llevando al espectador a un universo onírico y nostálgico. <br> <br> La idea de esta escena nace de la fascinación por la suavidad y la ternura de los peluches, elementos que evocan sensaciones de calma y protección. <br> En este entorno flotante, los osos de peluche no solo son figuras entrañables, sino símbolos de un mundo idílico donde la inocencia y la fantasía prevalecen.",
+            "Para la portada de YOROKOBU, se ha creado en Cinema 4D, un mundo imaginario donde tres osos de peluche flotan serenamente en el cielo, llevando al espectador a un universo onírico y nostálgico. <br> <br> La idea de esta escena nace de la fascinación por la suavidad y la ternura de los peluches, elementos que evocan sensaciones de calma y protección. <br> En este entorno flotante, los osos de peluche no solo son figuras entrañables, sino símbolos de un mundo idílico donde la inocencia y la fantasía prevalecen. <br> <br> Los personajes protagonistas fueron inspirados en diferentes osos y mundos como es el de Paddington.",
 
         type: "image",
 
@@ -853,7 +853,7 @@ const projectsData = [
             "Foyetos para la Exposición de Yoshitomo Nara - La Casa Encendida",
 
         description:
-            "Yoshitomo Nara es un artista reconocido por su singular estilo que fusiona la inocencia de la infancia con una carga emocional profunda y compleja, reflejada en sus icónicas figuras de niños y animales. Su trabajo explora temas como la rebeldía, la soledad, el dolor y la introspección, provocando una reflexión íntima en quienes se acercan a su obra. La Casa Encendida, como espacio cultural de vanguardia en Madrid, se erige como el contexto perfecto para albergar una exposición que no solo muestra las piezas de Nara, sino que también invita a los visitantes a sumergirse en su universo personal.",
+            "La Casa Encendida, como espacio cultural de vanguardia en Madrid, albergar una exposición que no solo muestra las piezas de Yoshitomo Nara, sino que también invita a los visitantes a sumergirse en su universo personal. <br> <br> Este proyecto recoge la propuesta de contenido editorial y promocional para dicha exposición. Se diseñó tanto la cartelería promocional, un libro de artista que contiene diferentes obras de Nara y folletos informativos de la propia exposición y del artista, todo siguiendo una estética minimalista y coherente con el trabajo de Nara. ",
 
         type: "image",
 
@@ -871,12 +871,12 @@ const projectsData = [
             "Revista Y punto.",
 
         description:
-            "Y Punto es una revista independiente que nace como un punto de encuentro entre moda, arte, diseño, música, cine y cultura visual, con una mirada fresca, auténtica y sin filtros. Esta primera edición representa la materialización de un proyecto que busca visibilizar talento emergente y generar una experiencia editorial viva, interactiva y cercana. ",
+            "Y Punto es una revista independiente que nace como un punto de encuentro entre moda, arte, diseño, música, cine y cultura visual, con una mirada fresca, auténtica y sin filtros. <br> <br> Esta primera edición representa la materialización de un proyecto que busca visibilizar talento emergente y generar una experiencia editorial viva, interactiva y cercana. <br> <br> Este proyecto editorial fue creado por un equipo de 4 personas en la que mi función fue coordinar fechas de entrega, realizar el planillo de la revista, diseño de retículas de varios artículos y colaboración en la maquetación final del número.",
 
         type: "video",
 
         media:
-            "media/video/REVISTA Y PUNTO.mov"
+            "media/video/modal-revista.mp4"
     },
 
 
@@ -889,7 +889,7 @@ const projectsData = [
             "Proyecto editorial GD",
 
         description:
-            "Guisando Diseño es una colección de libros única que celebra el diseño en todas sus facetas: gráfico, moda, interiores y mucho más. Inspirada en la idea de mezclar y “guisar” lo mejor de cada disciplina, esta publicación es un espacio donde la creatividad, la innovación y la funcionalidad se encuentran. Además consta en cada edición de artistas invitados de otro ámbito, ya sea música, danza, pintura...",
+            "Guisando Diseño es una colección de libros única que celebra el diseño en todas sus facetas: gráfico, moda, interiores y mucho más. <br> <br> Este proyecto se basó en maquetar 3 tomos diferentes de G.D con diferente contenido y uno de ellos fue impreso como prototipo. Además del diseño de foleto promocional de la saga y elementos complementarios como el diseño de tres marcapáginas inspirados en el diseño de las portadas. ",
 
         type: "image",
 
