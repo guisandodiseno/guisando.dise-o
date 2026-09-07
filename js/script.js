@@ -813,7 +813,7 @@ const projectsData = [
             "Modelado y render 3D Para Spot Publicitario",
 
         description:
-            "Proyecto desarrollado mediante modelado tridimensional, materiales, iluminación y renderizado.",
+            "BICHO RARO es una pieza de danza que muestra la marginación por parte de la sociedad actual hacia lo abyecto, en especial hacia las identidades queer. En ella destaca el uso de una máscara-cráneo. <br> <br> El presente trabajo pretende ser una de las piezas audiovisuales del proyecto, siendo un spot publicitario para redes del kit “Hacer tu propia máscara”, un packaging que recoge todos los materiales e instrucciones necesarias para hacer una máscara siguiendo el método de la máscara usada en BICHO RARO. <br> <br> Este spot, pretende ser fiel a los espacios donde se rodó la pieza y presentar tanto la máscara y packaging en dichos espacios, para que se asemejen al universo del proyecto. ",
 
         type: "video",
 
@@ -873,10 +873,10 @@ const projectsData = [
         description:
             "Y Punto es una revista independiente que nace como un punto de encuentro entre moda, arte, diseño, música, cine y cultura visual, con una mirada fresca, auténtica y sin filtros. Esta primera edición representa la materialización de un proyecto que busca visibilizar talento emergente y generar una experiencia editorial viva, interactiva y cercana. ",
 
-        type: "image",
+        type: "video",
 
         media:
-            "media/img/modal-editorial-02.png"
+            "media/video/REVISTA Y PUNTO.mov"
     },
 
 
@@ -894,7 +894,7 @@ const projectsData = [
         type: "image",
 
         media:
-            "media/img/modal-editorial-03.png"
+            "media/img/modal-GD.png"
     }
 
 ];
