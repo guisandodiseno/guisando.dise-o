@@ -2131,7 +2131,7 @@ h2 span {
 
 .editorial-label-2 {
 
-    width: min(16vw, 240px);
+    width: min(16vw, 200px);
 
     left: 43%;
 
@@ -2145,15 +2145,222 @@ h2 span {
 
 .editorial-label-3 {
 
-    width: min(17vw, 250px);
+    width: min(17vw, 350px);
 
-    right: 7%;
+    right: 10%;
 
-    bottom: 15%;
+    bottom: 30%;
 
-    transform: rotate(-7deg);
+    transform: rotate(15deg);
  }
 
+
+ /* ==========================================================
+   EDITORIAL / CARTELERÍA — 9 CARTELES
+   ========================================================== */
+
+
+/* CONTENEDOR DE LOS CARTELES */
+
+.editorial-posters {
+    position: absolute;
+
+    width: 70%;
+    height: 70%;
+
+    left: 15%;
+    top: -5%;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+
+/* CADA CARTEL */
+
+.editorial-poster {
+    position: absolute;
+
+    padding: 0;
+    margin: 0;
+
+    border: 0;
+    background: none;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transform-origin: center center;
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+
+    z-index: 5;
+}
+
+
+/* IMAGEN DEL CARTEL */
+
+.editorial-poster img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    pointer-events: none;
+}
+
+
+/* ==========================================================
+   POSICIÓN DE LOS 9 CARTELES
+   ========================================================== */
+
+
+/* CARTEL 01 — arriba izquierda */
+
+.editorial-poster-01 {
+    width: 14%;
+
+    left: 16%;
+    top: 7%;
+
+    transform: rotate(-7deg);
+
+    z-index: 5;
+}
+
+
+/* CARTEL 02 — arriba centro izquierda */
+
+.editorial-poster-02 {
+    width: 15%;
+
+    left: 29%;
+    top: 2%;
+
+    transform: rotate(-3deg);
+
+    z-index: 6;
+}
+
+
+/* CARTEL 03 — arriba centro */
+
+.editorial-poster-03 {
+    width: 15%;
+
+    left: 42%;
+    top: 1%;
+
+    transform: rotate(4deg);
+
+    z-index: 7;
+}
+
+
+/* CARTEL 04 — arriba derecha */
+
+.editorial-poster-04 {
+    width: 14%;
+
+    left: 55%;
+    top: 3%;
+
+    transform: rotate(7deg);
+
+    z-index: 6;
+}
+
+
+/* CARTEL 05 — derecha superior */
+
+.editorial-poster-05 {
+    width: 13%;
+
+    left: 67%;
+    top: 9%;
+
+    transform: rotate(12deg);
+
+    z-index: 5;
+}
+
+
+/* CARTEL 06 — izquierda central */
+
+.editorial-poster-06 {
+    width: 14%;
+
+    left: 13%;
+    top: 22%;
+
+    transform: rotate(-12deg);
+
+    z-index: 4;
+}
+
+
+/* CARTEL 07 — centro */
+
+.editorial-poster-07 {
+    width: 16%;
+
+    left: 37%;
+    top: 22%;
+
+    transform: rotate(-5deg);
+
+    z-index: 8;
+}
+
+
+/* CARTEL 08 — derecha central */
+
+.editorial-poster-08 {
+    width: 14%;
+
+    left: 54%;
+    top: 22%;
+
+    transform: rotate(8deg);
+
+    z-index: 7;
+}
+
+
+/* CARTEL 09 — derecha */
+
+.editorial-poster-09 {
+    width: 13%;
+
+    left: 67%;
+    top: 27%;
+
+    transform: rotate(14deg);
+
+    z-index: 6;
+}
+
+
+/* ==========================================================
+   HOVER
+   ========================================================== */
+
+.editorial-poster:hover {
+    transform:
+        translateY(-25px)
+        scale(1.15)
+        rotate(0deg);
+
+    z-index: 100;
+
+    filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.20));
+}
 
 /* ==========================================================
    MODAL GLOBAL PROYECTOS
