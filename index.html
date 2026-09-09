@@ -1002,18 +1002,15 @@
     ========================================================== -->
     <footer class="site-footer">
 
-        <div class="footer-3d reveal">
-            <!--
-                Más adelante aquí cargaremos el elemento 3D de Cinema 4D.
-                Dejamos el canvas preparado para Three.js/WebGL.
-            -->
-            <canvas id="canvas-3d"></canvas>
+      <div class="footer-3d reveal">
 
-            <div class="footer-3d-placeholder">
-                <p>Elemento 3D interactivo</p>
-                <span>Próximamente</span>
-            </div>
+       <canvas id="canvas-3d"></canvas>
+
+        <div class="footer-3d-placeholder">
+        <p>Elemento 3D interactivo</p>
         </div>
+
+    </div>
 
         <div class="footer-content reveal">
             <p>¿Hablamos?</p>
@@ -1028,6 +1025,10 @@
     </footer>
 
 
-    <script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "Spikle";
-    src: url("../assets/fonts/Spikle-Regular.woff2") format("woff2");
+    src: url("../media/fonts/Spikle.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -14,7 +14,7 @@
 
 @font-face {
     font-family: "Acumin";
-    src: url("../assets/fonts/Acumin-Variable.woff2") format("woff2");
+    src: url("../media/fonts/AcuminVariableConcept.otf") format("woff2");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -247,7 +247,7 @@ h2 span {
 .home-background--image {
     z-index: 0;
 
-    background-image: url("../assets/home-frigorifico.jpg");
+    background-image: url("../media/img/FondoHome.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -626,45 +626,45 @@ h2 span {
 .sticker-sobre-mi {
     width: clamp(160px, 19vw, 300px);
 
-    left: 52%;
-    top: 55%;
+    left: 68%;
+    top: 75%;
 
     transform: translate(-50%, -50%) rotate(8deg);
 }
 
 .sticker-redes {
-    left: 10%;
-    top: 57%;
+    left: 16%;
+    top: 47%;
 
     transform: rotate(-15deg);
 }
 
 .sticker-packaging {
-    right: 10%;
+    right: 23%;
     top: 38%;
 
     transform: rotate(10deg);
 }
 
 .sticker-ilustracion {
-    left: 43%;
-    top: 28%;
+    left: 53%;
+    top: 50%;
 
     transform: translate(-50%, -50%) rotate(3deg);
 }
 
 .sticker-3d {
-    left: 13%;
-    top: 22%;
+    left: 28%;
+    top: 32%;
 
     transform: rotate(-12deg);
 }
 
 .sticker-editorial {
-    right: 24%;
-    bottom: 13%;
+    right: 56%;
+    bottom: 6%;
 
-    transform: rotate(-8deg);
+    transform: rotate(-10deg);
 }
 
 
@@ -1013,7 +1013,7 @@ h2 span {
     left: 36.5%;
     top: 34%;
 
-    width: 18%;
+    width: 25%;
 
     transform: rotate(7deg);
 
@@ -3245,15 +3245,18 @@ h2 span {
 .footer-3d {
     position: relative;
     min-height: 60vh;
-
-    display: grid;
-    place-items: center;
+    overflow: hidden;
 }
 
 #canvas-3d {
     width: 100%;
     height: 60vh;
     display: block;
+    cursor: grab;
+}
+
+#canvas-3d:active {
+    cursor: grabbing;
 }
 
 .footer-3d-placeholder {

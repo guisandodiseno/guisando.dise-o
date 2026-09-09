@@ -1395,14 +1395,392 @@ document
     });
 
 
+    
 /* ==========================================================
-   06 — PREPARACIÓN PARA 3D
+   06 — MODELO 3D GLB
    ========================================================== */
 
-/*
-   Más adelante conectaremos aquí el objeto de Cinema 4D
-   mediante Three.js / WebGL.
-*/
+const footer3D = document.querySelector(".footer-3d");
+const canvas3D = document.getElementById("canvas-3d");
+
+
+if (footer3D && canvas3D && typeof THREE !== "undefined") {
+
+    /* ======================================================
+       ESCENA
+       ====================================================== */
+
+    const scene = new THREE.Scene();
+
+
+    /* ======================================================
+       CÁMARA
+       ====================================================== */
+
+    const camera = new THREE.PerspectiveCamera(
+        35,
+        footer3D.clientWidth / footer3D.clientHeight,
+        0.1,
+        1000
+    );
+
+
+    /* ======================================================
+       RENDERER
+       ====================================================== */
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas3D,
+        antialias: true,
+        alpha: true
+    });
+
+
+    renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio, 2)
+    );
+
+
+    renderer.setSize(
+        footer3D.clientWidth,
+        footer3D.clientHeight
+    );
+
+
+    renderer.outputEncoding = THREE.sRGBEncoding;
+
+
+    /* ======================================================
+       FONDO TRANSPARENTE
+       ====================================================== */
+
+    renderer.setClearColor(
+        0x000000,
+        0
+    );
+
+
+    /* ======================================================
+       LUCES
+       ====================================================== */
+
+    const ambientLight = new THREE.AmbientLight(
+        0xffffff,
+        2
+    );
+
+    scene.add(ambientLight);
+
+
+    const keyLight = new THREE.DirectionalLight(
+        0xffffff,
+        3
+    );
+
+    keyLight.position.set(
+        5,
+        10,
+        8
+    );
+
+    scene.add(keyLight);
+
+
+    const fillLight = new THREE.DirectionalLight(
+        0xffffff,
+        1.5
+    );
+
+    fillLight.position.set(
+        -5,
+        5,
+        5
+    );
+
+    scene.add(fillLight);
+
+
+    const backLight = new THREE.DirectionalLight(
+        0xffffff,
+        1
+    );
+
+    backLight.position.set(
+        0,
+        5,
+        -8
+    );
+
+    scene.add(backLight);
+
+
+    /* ======================================================
+       GRUPO DEL MODELO
+       ====================================================== */
+
+    let model = null;
+
+
+    /* ======================================================
+       CARGAR GLB
+       ====================================================== */
+
+    const loader = new THREE.GLTFLoader();
+
+
+    loader.load(
+
+        "media/3d/component.glb",
+
+        function (gltf) {
+
+            console.log("GLB cargado correctamente");
+
+            model = gltf.scene;
+
+            scene.add(model);
+
+
+            /* ==============================================
+               CENTRAR MODELO AUTOMÁTICAMENTE
+               ============================================== */
+
+            const box = new THREE.Box3().setFromObject(model);
+
+            const center = box.getCenter(
+                new THREE.Vector3()
+            );
+
+            const size = box.getSize(
+                new THREE.Vector3()
+            );
+
+
+            model.position.x -= center.x;
+            model.position.y -= center.y;
+            model.position.z -= center.z;
+
+
+            /* ==============================================
+               AJUSTAR CÁMARA AL TAMAÑO REAL DEL GLB
+               ============================================== */
+
+            const maxDimension = Math.max(
+                size.x,
+                size.y,
+                size.z
+            );
+
+
+            const fov = camera.fov * Math.PI / 180;
+
+            const cameraDistance =
+                (maxDimension / 2) /
+                Math.tan(fov / 2);
+
+
+            camera.position.set(
+                0,
+                0,
+                cameraDistance * 1.35
+            );
+
+
+            camera.lookAt(
+                0,
+                0,
+                0
+            );
+
+
+            console.log(
+                "Tamaño del modelo:",
+                size
+            );
+
+        },
+
+
+        function (xhr) {
+
+            if (xhr.total) {
+
+                const progress =
+                    (xhr.loaded / xhr.total) * 100;
+
+                console.log(
+                    "Cargando modelo:",
+                    Math.round(progress) + "%"
+                );
+
+            }
+
+        },
+
+
+        function (error) {
+
+            console.error(
+                "ERROR AL CARGAR EL GLB:",
+                error
+            );
+
+        }
+
+    );
+
+
+    /* ======================================================
+       INTERACCIÓN CON EL RATÓN
+       ====================================================== */
+
+    let mouseDown = false;
+    let previousMouseX = 0;
+
+    let rotationVelocity = 0;
+
+
+    canvas3D.addEventListener(
+        "pointerdown",
+        function (event) {
+
+            mouseDown = true;
+
+            previousMouseX = event.clientX;
+
+            canvas3D.setPointerCapture(
+                event.pointerId
+            );
+
+        }
+    );
+
+
+    canvas3D.addEventListener(
+        "pointermove",
+        function (event) {
+
+            if (!mouseDown || !model) return;
+
+
+            const difference =
+                event.clientX - previousMouseX;
+
+
+            rotationVelocity =
+                difference * 0.01;
+
+
+            model.rotation.y +=
+                rotationVelocity;
+
+
+            previousMouseX =
+                event.clientX;
+
+        }
+    );
+
+
+    canvas3D.addEventListener(
+        "pointerup",
+        function () {
+
+            mouseDown = false;
+
+        }
+    );
+
+
+    canvas3D.addEventListener(
+        "pointercancel",
+        function () {
+
+            mouseDown = false;
+
+        }
+    );
+
+
+    /* ======================================================
+       ANIMACIÓN
+       ====================================================== */
+
+    function animate3D() {
+
+        requestAnimationFrame(
+            animate3D
+        );
+
+
+        if (model && !mouseDown) {
+
+            model.rotation.y +=
+                rotationVelocity;
+
+            rotationVelocity *= 0.92;
+
+        }
+
+
+        renderer.render(
+            scene,
+            camera
+        );
+
+    }
+
+
+    animate3D();
+
+
+    /* ======================================================
+       RESPONSIVE
+       ====================================================== */
+
+    function resize3D() {
+
+        const width =
+            footer3D.clientWidth;
+
+        const height =
+            footer3D.clientHeight;
+
+
+        if (width === 0 || height === 0) {
+            return;
+        }
+
+
+        camera.aspect =
+            width / height;
+
+
+        camera.updateProjectionMatrix();
+
+
+        renderer.setSize(
+            width,
+            height
+        );
+
+
+        renderer.setPixelRatio(
+            Math.min(
+                window.devicePixelRatio,
+                2
+            )
+        );
+
+    }
+
+
+    window.addEventListener(
+        "resize",
+        resize3D
+    );
+
+}
 
 /* ==========================================================
    07 — RECALCULAR HOME AL CAMBIAR TAMAÑO
