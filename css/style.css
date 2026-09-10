@@ -3253,10 +3253,15 @@ h2 span {
     height: 60vh;
     display: block;
     cursor: grab;
+    touch-action: none;
 }
 
 #canvas-3d:active {
     cursor: grabbing;
+}
+
+.footer-3d-placeholder {
+    display: none;
 }
 
 .footer-3d-placeholder {

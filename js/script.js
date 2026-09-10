@@ -1397,76 +1397,52 @@ document
 
     
 /* ==========================================================
-   06 — MODELO 3D GLB
+   06 — MODELO 3D
    ========================================================== */
 
 const footer3D = document.querySelector(".footer-3d");
-const canvas3D = document.getElementById("canvas-3d");
+ const canvas3D = document.getElementById("canvas-3d");
 
+ if (footer3D && canvas3D && typeof THREE !== "undefined") {
 
-if (footer3D && canvas3D && typeof THREE !== "undefined") {
-
-    /* ======================================================
-       ESCENA
-       ====================================================== */
+    // ------------------------------------------------------
+    // ESCENA
+    // ------------------------------------------------------
 
     const scene = new THREE.Scene();
 
-
-    /* ======================================================
-       CÁMARA
-       ====================================================== */
-
-    const camera = new THREE.PerspectiveCamera(
+     const camera = new THREE.PerspectiveCamera(
         35,
         footer3D.clientWidth / footer3D.clientHeight,
         0.1,
         1000
     );
 
-
-    /* ======================================================
-       RENDERER
-       ====================================================== */
-
-    const renderer = new THREE.WebGLRenderer({
+     const renderer = new THREE.WebGLRenderer({
         canvas: canvas3D,
         antialias: true,
         alpha: true
     });
 
-
-    renderer.setPixelRatio(
-        Math.min(window.devicePixelRatio, 2)
-    );
-
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     renderer.setSize(
         footer3D.clientWidth,
         footer3D.clientHeight
-    );
+     );
+
+     renderer.outputEncoding = THREE.sRGBEncoding;
+
+    renderer.setClearColor(0x000000, 0);
 
 
-    renderer.outputEncoding = THREE.sRGBEncoding;
-
-
-    /* ======================================================
-       FONDO TRANSPARENTE
-       ====================================================== */
-
-    renderer.setClearColor(
-        0x000000,
-        0
-    );
-
-
-    /* ======================================================
-       LUCES
-       ====================================================== */
+    // ------------------------------------------------------
+    // ILUMINACIÓN
+    // ------------------------------------------------------
 
     const ambientLight = new THREE.AmbientLight(
         0xffffff,
-        2
+        2.5
     );
 
     scene.add(ambientLight);
@@ -1474,62 +1450,53 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
 
     const keyLight = new THREE.DirectionalLight(
         0xffffff,
-        3
+        4
     );
 
-    keyLight.position.set(
-        5,
-        10,
-        8
-    );
+    keyLight.position.set(5, 10, 8);
 
     scene.add(keyLight);
 
 
     const fillLight = new THREE.DirectionalLight(
         0xffffff,
-        1.5
+        2
     );
 
-    fillLight.position.set(
-        -5,
-        5,
-        5
-    );
+    fillLight.position.set(-6, 5, 6);
 
     scene.add(fillLight);
 
 
-    const backLight = new THREE.DirectionalLight(
+    const frontLight = new THREE.DirectionalLight(
         0xffffff,
-        1
+        2
     );
 
-    backLight.position.set(
-        0,
-        5,
-        -8
+    frontLight.position.set(0, 3, 10);
+
+    scene.add(frontLight);
+
+
+    const backLight = new THREE.DirectionalLight(
+        0xffffff,
+        1.5
     );
+
+    backLight.position.set(0, 5, -10);
 
     scene.add(backLight);
 
 
-    /* ======================================================
-       GRUPO DEL MODELO
-       ====================================================== */
+    // ------------------------------------------------------
+    // MODELO
+    // ------------------------------------------------------
 
     let model = null;
 
+     const loader = new THREE.GLTFLoader();
 
-    /* ======================================================
-       CARGAR GLB
-       ====================================================== */
-
-    const loader = new THREE.GLTFLoader();
-
-
-    loader.load(
-
+     loader.load(
         "media/3d/component.glb",
 
         function (gltf) {
@@ -1541,9 +1508,9 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
             scene.add(model);
 
 
-            /* ==============================================
-               CENTRAR MODELO AUTOMÁTICAMENTE
-               ============================================== */
+            // ----------------------------------------------
+            // CENTRAR MODELO
+            // ----------------------------------------------
 
             const box = new THREE.Box3().setFromObject(model);
 
@@ -1556,23 +1523,20 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
             );
 
 
-            model.position.x -= center.x;
-            model.position.y -= center.y;
-            model.position.z -= center.z;
+            model.position.sub(center);
 
 
-            /* ==============================================
-               AJUSTAR CÁMARA AL TAMAÑO REAL DEL GLB
-               ============================================== */
+            // ----------------------------------------------
+            // AJUSTAR CÁMARA
+            // ----------------------------------------------
 
             const maxDimension = Math.max(
                 size.x,
                 size.y,
                 size.z
-            );
+             );
 
-
-            const fov = camera.fov * Math.PI / 180;
+             const fov = camera.fov * Math.PI / 180;
 
             const cameraDistance =
                 (maxDimension / 2) /
@@ -1582,43 +1546,51 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
             camera.position.set(
                 0,
                 0,
-                cameraDistance * 1.35
+                cameraDistance * 1.5
             );
 
-
-            camera.lookAt(
-                0,
-                0,
-                0
-            );
+            camera.lookAt(0, 0, 0);
 
 
-            console.log(
-                "Tamaño del modelo:",
-                size
-            );
+            // ----------------------------------------------
+            // ASEGURAR QUE LOS MATERIALES SE VEAN
+            // ----------------------------------------------
 
-        },
+            model.traverse(function (child) {
 
+                if (child.isMesh) {
 
-        function (xhr) {
+                    child.castShadow = true;
+                    child.receiveShadow = true;
 
-            if (xhr.total) {
+                    if (child.material) {
 
-                const progress =
-                    (xhr.loaded / xhr.total) * 100;
+                        child.material.needsUpdate = true;
+
+                    }
+
+                }
+
+            });
+
+         },
+
+         function (xhr) {
+
+             if (xhr.total) {
 
                 console.log(
                     "Cargando modelo:",
-                    Math.round(progress) + "%"
+                    Math.round(
+                        (xhr.loaded / xhr.total) * 100
+                    ) + "%"
                 );
 
             }
 
-        },
+         },
 
-
-        function (error) {
+         function (error) {
 
             console.error(
                 "ERROR AL CARGAR EL GLB:",
@@ -1626,27 +1598,29 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
             );
 
         }
+     );
 
-    );
 
+    // ------------------------------------------------------
+    // ROTACIÓN CON RATÓN / TÁCTIL
+    // ------------------------------------------------------
 
-    /* ======================================================
-       INTERACCIÓN CON EL RATÓN
-       ====================================================== */
+    let isDragging = false;
 
-    let mouseDown = false;
-    let previousMouseX = 0;
-
-    let rotationVelocity = 0;
+    let previousX = 0;
+    let previousY = 0;
 
 
     canvas3D.addEventListener(
         "pointerdown",
         function (event) {
 
-            mouseDown = true;
+            if (!model) return;
 
-            previousMouseX = event.clientX;
+            isDragging = true;
+
+            previousX = event.clientX;
+            previousY = event.clientY;
 
             canvas3D.setPointerCapture(
                 event.pointerId
@@ -1660,23 +1634,34 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
         "pointermove",
         function (event) {
 
-            if (!mouseDown || !model) return;
+            if (!isDragging || !model) return;
 
 
-            const difference =
-                event.clientX - previousMouseX;
+            const deltaX =
+                event.clientX - previousX;
+
+            const deltaY =
+                event.clientY - previousY;
 
 
-            rotationVelocity =
-                difference * 0.01;
+            // ROTACIÓN HORIZONTAL
+            model.rotation.y += deltaX * 0.01;
 
 
-            model.rotation.y +=
-                rotationVelocity;
+            // ROTACIÓN VERTICAL
+            model.rotation.x += deltaY * 0.01;
 
 
-            previousMouseX =
-                event.clientX;
+            // LIMITAMOS LA ROTACIÓN VERTICAL
+            model.rotation.x = THREE.MathUtils.clamp(
+                model.rotation.x,
+                -Math.PI / 2,
+                Math.PI / 2
+            );
+
+
+            previousX = event.clientX;
+            previousY = event.clientY;
 
         }
     );
@@ -1686,7 +1671,7 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
         "pointerup",
         function () {
 
-            mouseDown = false;
+            isDragging = false;
 
         }
     );
@@ -1696,47 +1681,33 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
         "pointercancel",
         function () {
 
-            mouseDown = false;
+            isDragging = false;
 
         }
     );
 
 
-    /* ======================================================
-       ANIMACIÓN
-       ====================================================== */
+    // ------------------------------------------------------
+    // ANIMACIÓN
+    // ------------------------------------------------------
 
     function animate3D() {
 
-        requestAnimationFrame(
-            animate3D
-        );
-
-
-        if (model && !mouseDown) {
-
-            model.rotation.y +=
-                rotationVelocity;
-
-            rotationVelocity *= 0.92;
-
-        }
-
+        requestAnimationFrame(animate3D);
 
         renderer.render(
             scene,
             camera
         );
 
-    }
+     }
+
+     animate3D();
 
 
-    animate3D();
-
-
-    /* ======================================================
-       RESPONSIVE
-       ====================================================== */
+    // ------------------------------------------------------
+    // RESPONSIVE
+    // ------------------------------------------------------
 
     function resize3D() {
 
@@ -1747,16 +1718,13 @@ if (footer3D && canvas3D && typeof THREE !== "undefined") {
             footer3D.clientHeight;
 
 
-        if (width === 0 || height === 0) {
-            return;
-        }
+        if (width === 0 || height === 0) return;
 
 
         camera.aspect =
             width / height;
 
-
-        camera.updateProjectionMatrix();
+         camera.updateProjectionMatrix();
 
 
         renderer.setSize(
