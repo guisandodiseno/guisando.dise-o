@@ -1096,13 +1096,15 @@ h2 span {
 .about-blue-object {
 
     left: 62%;
-    top: 62%;
+    top: 58%;
 
     width: 7%;
 
     transform: rotate(-12deg);
 
     z-index: 8;
+
+    overflow: visible;
 }
 
 
