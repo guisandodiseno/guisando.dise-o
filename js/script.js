@@ -107,6 +107,38 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 
 });
 
+/* ==========================================================
+   CTA CONTACTO — ROTACIÓN CON EL SCROLL
+   ========================================================== */
+
+const floatingContact =
+    document.querySelector(".floating-contact");
+
+if (floatingContact) {
+
+    let ctaRotation = 0;
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+
+        const currentScrollY = window.scrollY;
+
+        const scrollDifference =
+            currentScrollY - lastScrollY;
+
+        ctaRotation += scrollDifference * 0.5;
+
+        floatingContact.style.setProperty(
+            "--cta-rotation",
+            `${ctaRotation}deg`
+        );
+
+        lastScrollY = currentScrollY;
+
+    }, { passive: true });
+
+}
+
 
 /* ==========================================================
    04 — HOME INTERACTIVO
@@ -889,7 +921,7 @@ const projectsData = [
             "Proyecto editorial GD",
 
         description:
-            "Guisando Diseño es una colección de libros única que celebra el diseño en todas sus facetas: gráfico, moda, interiores y mucho más. <br> <br> Este proyecto se basó en maquetar 3 tomos diferentes de G.D con diferente contenido y uno de ellos fue impreso como prototipo. Además del diseño de foleto promocional de la saga y elementos complementarios como el diseño de tres marcapáginas inspirados en el diseño de las portadas. ",
+            "Guisando Diseño es una colección de libros única que celebra el diseño en todas sus facetas: gráfico, moda, interiores y mucho más. <br> <br> Este proyecto se basó en maquetar 3 tomos diferentes de G.D con diferente contenido y uno de ellos fue impreso como prototipo. Además del diseño de folleto promocional de la saga y elementos complementarios como el diseño de tres marcapáginas inspirados en el diseño de las portadas. ",
 
         type: "image",
 
@@ -1394,6 +1426,41 @@ document
 
     });
 
+
+/* ==========================================================
+   EDITORIAL — CLIC EN MÓVIL
+   ========================================================== */
+
+const editorialPosters =
+    document.querySelectorAll(".editorial-poster");
+
+editorialPosters.forEach((poster) => {
+
+    poster.addEventListener("click", (event) => {
+
+        // Solo funciona en móvil
+        if (window.innerWidth > 700) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        // Quitamos la selección de los demás carteles
+        editorialPosters.forEach((otherPoster) => {
+
+            if (otherPoster !== poster) {
+                otherPoster.classList.remove(
+                    "is-selected"
+                );
+            }
+
+        });
+
+        // Activamos/desactivamos el cartel pulsado
+        poster.classList.toggle("is-selected");
+
+    });
+
+});
 
     
 /* ==========================================================

@@ -208,6 +208,47 @@ h2 span {
     color: var(--coral);
 }
 
+/* ==========================================================
+   CTA CONTACTO FLOTANTE
+   ========================================================== */
+
+.floating-contact {
+    position: fixed;
+
+    right: 30px;
+    top: 50%;
+
+    width: 100px;
+    height: 200px;
+
+    z-index: 9999;
+
+    display: block;
+
+    transform:
+        translateY(-50%)
+        rotate(var(--cta-rotation, 0deg));
+
+    transform-origin: center center;
+
+    cursor: pointer;
+
+    transition: scale 0.2s ease;
+}
+
+.floating-contact img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+}
+
+.floating-contact:hover {
+    scale: 1.08;
+}
+
 
 /* ---------- INICIO ---------- */
 
@@ -512,7 +553,7 @@ h2 span {
     position: absolute;
     z-index: 10;
 
-    top: 3%;
+    top: 10%;
     left: 50%;
 
     transform: translateX(-50%);
@@ -838,26 +879,28 @@ h2 span {
 
     .sticker-sobre-mi {
         width: 125px;
+        left: 50%;
+        top: 64%;
     }
 
     .sticker-redes {
         left: 2%;
-        top: 45%;
+        top: 50%;
     }
 
     .sticker-packaging {
-        right: 2%;
-        top: 30%;
+        right: 10%;
+        top: 40%;
     }
 
     .sticker-ilustracion {
-        left: 40%;
-        top: 26%;
+        left: 50%;
+        top: 46%;
     }
 
     .sticker-3d {
         left: 2%;
-        top: 17%;
+        top: 37%;
     }
 
     .sticker-editorial {
@@ -2235,24 +2278,24 @@ h2 span {
 .editorial-poster-01 {
     width: 14%;
 
-    left: 16%;
-    top: 7%;
+    left: 12%;
+    top: 25%;
 
-    transform: rotate(-7deg);
+    transform: rotate(-45deg);
 
-    z-index: 5;
+    z-index: 2;
 }
 
 
 /* CARTEL 02 — arriba centro izquierda */
 
 .editorial-poster-02 {
-    width: 15%;
+    width: 12%;
 
-    left: 29%;
-    top: 2%;
+    left: 16%;
+    top: 20%;
 
-    transform: rotate(-3deg);
+    transform: rotate(-5deg);
 
     z-index: 6;
 }
@@ -2261,12 +2304,12 @@ h2 span {
 /* CARTEL 03 — arriba centro */
 
 .editorial-poster-03 {
-    width: 15%;
+    width: 13%;
 
-    left: 42%;
-    top: 1%;
+    left: 22%;
+    top: 22%;
 
-    transform: rotate(4deg);
+    transform: rotate(-20deg);
 
     z-index: 7;
 }
@@ -2277,10 +2320,10 @@ h2 span {
 .editorial-poster-04 {
     width: 14%;
 
-    left: 55%;
-    top: 3%;
+    left: 30%;
+    top: 9%;
 
-    transform: rotate(7deg);
+    transform: rotate(3deg);
 
     z-index: 6;
 }
@@ -2291,38 +2334,38 @@ h2 span {
 .editorial-poster-05 {
     width: 13%;
 
-    left: 67%;
+    left: 43%;
     top: 9%;
 
-    transform: rotate(12deg);
+    transform: rotate(-12deg);
 
-    z-index: 5;
+    z-index: 7;
 }
 
 
 /* CARTEL 06 — izquierda central */
 
 .editorial-poster-06 {
-    width: 14%;
+    width: 11%;
 
-    left: 13%;
-    top: 22%;
+    left: 37%;
+    top: 34%;
 
-    transform: rotate(-12deg);
+    transform: rotate(12deg);
 
-    z-index: 4;
+    z-index: 7;
 }
 
 
 /* CARTEL 07 — centro */
 
 .editorial-poster-07 {
-    width: 16%;
+    width: 12%;
 
-    left: 37%;
-    top: 22%;
+    left: 49%;
+    top: 12%;
 
-    transform: rotate(-5deg);
+    transform: rotate(2deg);
 
     z-index: 8;
 }
@@ -2331,14 +2374,14 @@ h2 span {
 /* CARTEL 08 — derecha central */
 
 .editorial-poster-08 {
-    width: 14%;
+    width: 10%;
 
-    left: 54%;
-    top: 22%;
+    left: 52%;
+    top: 32%;
 
-    transform: rotate(8deg);
+    transform: rotate(10deg);
 
-    z-index: 7;
+    z-index: 10;
 }
 
 
@@ -2347,12 +2390,12 @@ h2 span {
 .editorial-poster-09 {
     width: 13%;
 
-    left: 67%;
-    top: 27%;
+    left: 57%;
+    top: 17%;
 
     transform: rotate(14deg);
 
-    z-index: 6;
+    z-index: 9;
 }
 
 
@@ -2954,7 +2997,7 @@ h2 span {
 
         width: 100vw;
 
-        left: 50%;
+        left: 55%;
 
         top: 50%;
     }
@@ -2964,9 +3007,9 @@ h2 span {
 
         width: 31vw;
 
-        left: 2%;
+        left: 40%;
 
-        bottom: 3%;
+        bottom: 25%;
     }
 
 
@@ -2978,7 +3021,7 @@ h2 span {
 
         width: 105vw;
 
-        left: 50%;
+        left: 45%;
 
         top: 50%;
     }
@@ -2990,7 +3033,7 @@ h2 span {
 
         left: 3%;
 
-        bottom: 7%;
+        bottom: 18%;
     }
 
 
@@ -3010,7 +3053,7 @@ h2 span {
 
         right: 3%;
 
-        bottom: 5%;
+        bottom: 18%;
     }
 
 
@@ -3020,9 +3063,9 @@ h2 span {
 
     .project-ilustracion .project-main-image {
 
-        width: 105vw;
+        width: 110vw;
 
-        left: 50%;
+        left: 55%;
 
         top: 50%;
     }
@@ -3034,7 +3077,7 @@ h2 span {
 
         left: 3%;
 
-        top: 25%;
+        top: 58%;
     }
 
 
@@ -3042,9 +3085,9 @@ h2 span {
 
         width: 28vw;
 
-        right: 3%;
+        right: 2%;
 
-        bottom: 10%;
+        bottom: 47%;
     }
 
 
@@ -3068,7 +3111,7 @@ h2 span {
 
         left: 5%;
 
-        bottom: 8%;
+        bottom: 18%;
     }
 
 
@@ -3088,7 +3131,7 @@ h2 span {
 
     .project-editorial .project-main-image {
 
-        width: 108vw;
+        width: 100vw;
 
         left: 50%;
 
@@ -3102,17 +3145,17 @@ h2 span {
 
         left: 3%;
 
-        bottom: 8%;
+        bottom: 12%;
     }
 
 
     .editorial-label-2 {
 
-        width: 29vw;
+        width: 25vw;
 
         left: 36%;
 
-        bottom: 3%;
+        bottom: 20%;
     }
 
 
@@ -3122,7 +3165,7 @@ h2 span {
 
         right: 3%;
 
-        bottom: 10%;
+        bottom: 18%;
     }
 
 
@@ -3602,7 +3645,7 @@ h2 span {
     .home-title {
         position: absolute;
 
-        top: 5%;
+        top: 10%;
         left: 50%;
 
         width: 100%;
@@ -3954,6 +3997,59 @@ h2 span {
         width: 88%;
         transform: rotate(4deg);
         z-index: 12;
+    }
+
+}
+
+
+
+/* ==========================================================
+   EDITORIAL — AJUSTE MÓVIL
+   BANDEJA + CARTELES COMO UNA SOLA COMPOSICIÓN
+   ========================================================== */
+
+@media (max-width: 700px) {
+
+    .editorial-posters {
+        width: 130vw;
+        height: auto;
+
+        left: 57%;
+        top: 25%;
+
+        transform: translate(-50%, -50%);
+
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    .editorial-poster {
+        position: absolute;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .footer-content {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+
+    .footer-content > a {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+
+        font-size: clamp(1.2rem, 6vw, 2rem);
+        line-height: 1.1;
+
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: clip;
     }
 
 }
