@@ -93,6 +93,8 @@ button {
 }
 
 
+
+
 /* ---------- HEADER ---------- */
 
 .site-header {
@@ -247,6 +249,14 @@ h2 span {
 
 .floating-contact:hover {
     scale: 1.08;
+}
+
+@media (max-width: 700px) {
+
+    .floating-contact {
+        display: none;
+    }
+
 }
 
 
